@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EL Finans Gizlilik Politikası</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f8fafc;
+      --text: #111827;
+      --muted: #4b5563;
+      --card: #ffffff;
+      --border: #e5e7eb;
+      --accent: #2563eb;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+
+    main {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 40px 20px 64px;
+    }
+
+    article {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 32px;
+    }
+
+    h1, h2 {
+      line-height: 1.25;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 32px;
+    }
+
+    h2 {
+      margin-top: 32px;
+      font-size: 20px;
+    }
+
+    p, li {
+      color: var(--muted);
+    }
+
+    strong {
+      color: var(--text);
+    }
+
+    a {
+      color: var(--accent);
+    }
+
+    .language-switch {
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .language-switch button {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: #ffffff;
+      color: var(--muted);
+      cursor: pointer;
+      font: inherit;
+      font-size: 14px;
+      padding: 8px 12px;
+    }
+
+    .language-switch button[aria-pressed="true"] {
+      border-color: var(--accent);
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    [data-lang] {
+      display: none;
+    }
+
+    html[data-active-lang="tr"] [data-lang="tr"],
+    html[data-active-lang="en"] [data-lang="en"] {
+      display: block;
+    }
+
+    .meta {
+      margin-top: 0;
+      color: var(--muted);
+    }
+
+    @media (max-width: 640px) {
+      main {
+        padding: 20px 12px 40px;
+      }
+
+      article {
+        padding: 22px;
+      }
+
+      h1 {
+        font-size: 26px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="language-switch" aria-label="Dil seçimi">
+      <button type="button" data-set-lang="tr" aria-pressed="true">Türkçe</button>
+      <button type="button" data-set-lang="en" aria-pressed="false">English</button>
+    </div>
+
+    <article>
+      <section data-lang="tr">
+        <h1>EL Finans Gizlilik Politikası</h1>
+        <p class="meta">Son güncelleme: 6 Mayıs 2026</p>
+
+        <p>
+          EL Finans, kişisel finans takibi için geliştirilmiş bir mobil uygulamadır.
+          Bu politika, uygulamada hangi verilerin işlendiğini, nerede saklandığını ve hangi amaçlarla kullanıldığını açıklar.
+        </p>
+
+        <h2>Toplanan ve İşlenen Veriler</h2>
+        <p>Uygulama aşağıdaki veri türlerini işleyebilir:</p>
+        <ul>
+          <li>Finansal kayıtlar: gelir, gider, kategori, tutar, tarih, hesap ve benzeri finans verileri.</li>
+          <li>Kullanıcı içeriği: işlem notları, açıklamalar ve kullanıcının girdiği serbest metinler.</li>
+          <li>Fotoğraflar: fiş veya belge tarama özelliği kullanıldığında seçilen görseller geçici olarak işlenebilir.</li>
+          <li>Hesap bilgileri: kullanıcı kimliği ve e-posta adresi, giriş ve hesap yönetimi için kullanılır.</li>
+          <li>Satın alma bilgileri: abonelik ve uygulama içi satın alma doğrulama kayıtları.</li>
+          <li>Reklam verisi ve cihaz tanımlayıcıları: reklam gösterimi için üçüncü taraf reklam SDK'ları tarafından işlenebilir.</li>
+        </ul>
+
+        <h2>Verilerin Saklanması ve Güvenlik</h2>
+        <p>
+          Kişisel finans verileri cihazda şifreli olarak saklanır. Bulut senkronizasyonu ve yedekleme kullanıldığında
+          finans verileri Supabase altyapısına şifreli veri olarak aktarılır. Şifreleme anahtarları kullanıcının cihazında
+          saklanır ve sunucu tarafına gönderilmez.
+        </p>
+        <p>
+          Yerel ve bulut yedek dosyaları şifreli olarak oluşturulur. Hassas API anahtarları ve sunucu yetkileri uygulama
+          paketine gömülmez; sunucu tarafında veya güvenli ortam değişkenlerinde tutulur.
+        </p>
+
+        <h2>Bulut Senkronizasyonu ve Yedekleme</h2>
+        <p>
+          Kullanıcı giriş yaptığında finans verileri isteğe bağlı olarak bulutla senkronize edilebilir veya bulut yedeği
+          alınabilir. Paylaşımlı hesap özelliğinde, hesaba dahil olan üyelerin görmesi beklenen ortak hesap verileri
+          Supabase tarafında rol tabanlı erişim kuralları ile korunur.
+        </p>
+
+        <h2>Yapay Zekâ Özellikleri</h2>
+        <p>
+          Metin veya görsel analiz özellikleri kullanıldığında, kullanıcının seçtiği metin veya görsel içerik yapay zekâ işlemi
+          için Supabase Edge Function üzerinden Google Gemini API'ye iletilebilir. Bu işlem isteğe bağlıdır ve kullanıcı
+          tarafından başlatılır.
+        </p>
+
+        <h2>Uygulama İçi Satın Almalar</h2>
+        <p>
+          Premium abonelikler ve yapay zekâ kredi paketleri Apple App Store veya Google Play üzerinden işlenir. Satın alma
+          doğrulaması sunucu tarafında yapılır. Ödeme kartı veya banka bilgileri EL Finans tarafından saklanmaz.
+        </p>
+
+        <h2>Reklamlar</h2>
+        <p>
+          Uygulama banner veya ödüllü reklamlar gösterebilir. Reklam gösterimi için Google AdMob SDK'sı kullanılabilir.
+          Reklam hizmetleri kendi gizlilik politikalarına göre cihaz veya reklam verilerini işleyebilir.
+        </p>
+
+        <h2>Üçüncü Taraf Hizmetler</h2>
+        <p>Uygulama aşağıdaki hizmetlerle çalışabilir:</p>
+        <ul>
+          <li>Supabase: kimlik doğrulama, veri senkronizasyonu, bulut yedekleme ve sunucu fonksiyonları.</li>
+          <li>Google Gemini API: isteğe bağlı yapay zekâ analiz özellikleri.</li>
+          <li>Apple App Store ve Google Play: uygulama içi satın alma işlemleri ve doğrulama.</li>
+          <li>Google AdMob: reklam gösterimi.</li>
+        </ul>
+
+        <h2>Kullanıcı Hakları</h2>
+        <p>
+          Kullanıcı, uygulama içinden yerel verilerini silebilir, bulut verilerini sıfırlayabilir veya hesabının silinmesini
+          talep edebilir. Hesap silme işlemi sonrasında ilgili bulut verileri ve cihazdaki bulut şifreleme anahtarı silinir.
+        </p>
+
+        <h2>Çocukların Gizliliği</h2>
+        <p>
+          EL Finans çocuklara yönelik bir uygulama değildir ve bilerek çocuklardan kişisel veri toplamayı hedeflemez.
+        </p>
+
+        <h2>Politika Değişiklikleri</h2>
+        <p>
+          Bu gizlilik politikası, uygulamadaki veri işleme yöntemleri değiştiğinde güncellenebilir. Güncel politika bu
+          sayfada yayınlanır.
+        </p>
+
+        <h2>İletişim</h2>
+        <p>
+          Gizlilik politikası veya veri talepleri için uygulamanın App Store veya Google Play sayfasında belirtilen
+          geliştirici iletişim kanalını kullanabilirsiniz.
+        </p>
+      </section>
+
+      <section data-lang="en">
+        <h1>EL Finans Privacy Policy</h1>
+        <p class="meta">Last updated: May 6, 2026</p>
+
+        <p>
+          EL Finans is a mobile app designed for personal finance tracking.
+          This policy explains what data is processed in the app, where it is stored, and for which purposes it is used.
+        </p>
+
+        <h2>Data We Collect and Process</h2>
+        <p>The app may process the following types of data:</p>
+        <ul>
+          <li>Financial records: income, expenses, category, amount, date, account, and similar financial data.</li>
+          <li>User content: transaction notes, descriptions, and free-text entries provided by the user.</li>
+          <li>Photos: selected receipt or document images may be processed temporarily when scan features are used.</li>
+          <li>Account information: user ID and email address are used for sign-in and account management.</li>
+          <li>Purchase information: subscription and in-app purchase verification records.</li>
+          <li>Advertising data and device identifiers: these may be processed by third-party advertising SDKs to display ads.</li>
+        </ul>
+
+        <h2>Storage and Security</h2>
+        <p>
+          Personal financial data is stored encrypted on the device. When cloud sync or backup is used,
+          financial data is transferred to Supabase as encrypted data. Encryption keys are stored on the user's device
+          and are not sent to the server.
+        </p>
+        <p>
+          Local and cloud backup files are created in encrypted form. Sensitive API keys and server credentials are not
+          embedded in the app package; they are stored server-side or in secure environment variables.
+        </p>
+
+        <h2>Cloud Sync and Backup</h2>
+        <p>
+          When the user signs in, financial data may optionally be synced with the cloud or backed up to cloud storage.
+          For shared accounts, shared account data that members are expected to see is protected by role-based access
+          rules on Supabase.
+        </p>
+
+        <h2>AI Features</h2>
+        <p>
+          When text or image analysis features are used, the text or image content selected by the user may be sent to
+          the Google Gemini API through a Supabase Edge Function for AI processing. This processing is optional and is
+          initiated by the user.
+        </p>
+
+        <h2>In-App Purchases</h2>
+        <p>
+          Premium subscriptions and AI credit packages are processed through the Apple App Store or Google Play.
+          Purchase verification is performed server-side. Payment card or bank information is not stored by EL Finans.
+        </p>
+
+        <h2>Advertising</h2>
+        <p>
+          The app may display banner or rewarded ads. Google AdMob SDK may be used for ad delivery.
+          Advertising services may process device or advertising data according to their own privacy policies.
+        </p>
+
+        <h2>Third-Party Services</h2>
+        <p>The app may work with the following services:</p>
+        <ul>
+          <li>Supabase: authentication, data sync, cloud backup, and server functions.</li>
+          <li>Google Gemini API: optional AI analysis features.</li>
+          <li>Apple App Store and Google Play: in-app purchase processing and verification.</li>
+          <li>Google AdMob: ad delivery.</li>
+        </ul>
+
+        <h2>User Rights</h2>
+        <p>
+          Users can delete local data, reset cloud data, or request account deletion from within the app.
+          After account deletion, related cloud data and the cloud encryption key stored on the device are deleted.
+        </p>
+
+        <h2>Children's Privacy</h2>
+        <p>
+          EL Finans is not directed to children and does not knowingly aim to collect personal data from children.
+        </p>
+
+        <h2>Policy Changes</h2>
+        <p>
+          This privacy policy may be updated when the app's data processing practices change. The current policy is
+          published on this page.
+        </p>
+
+        <h2>Contact</h2>
+        <p>
+          For privacy policy questions or data requests, please use the developer contact channel listed on the app's
+          App Store or Google Play page.
+        </p>
+      </section>
+    </article>
+  </main>
+
+  <script>
+    const html = document.documentElement;
+    const buttons = document.querySelectorAll('[data-set-lang]');
+    const savedLanguage = localStorage.getItem('el-finans-privacy-language');
+    const initialLanguage = savedLanguage === 'en' ? 'en' : 'tr';
+
+    function setLanguage(language) {
+      html.dataset.activeLang = language;
+      html.lang = language;
+      localStorage.setItem('el-finans-privacy-language', language);
+      buttons.forEach((button) => {
+        button.setAttribute('aria-pressed', String(button.dataset.setLang === language));
+      });
+    }
+
+    buttons.forEach((button) => {
+      button.addEventListener('click', () => setLanguage(button.dataset.setLang));
+    });
+
+    setLanguage(initialLanguage);
+  </script>
+</body>
+</html>
