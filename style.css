@@ -651,8 +651,24 @@ h2 { font-size: clamp(30px, 4.5vw, 52px); font-weight: 700; }
   .ai-visual .phone { width: clamp(180px, calc((100svh - var(--nav-h) - 120px) * .43), 235px); }
 }
 @media (max-width: 900px) {
-  .ai-visual { margin-top: 8px; }
-  .ai-visual .phone { width: min(300px, 78vw); }
+  .ai-section .immersive-stage {
+    height: auto;
+    min-height: 0;
+    padding: 48px 14px 56px;
+    overflow: visible;
+  }
+  .ai-panel {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+    padding: 32px 20px 24px;
+    border-radius: 28px;
+  }
+  .ai-panel h2 { font-size: clamp(30px, 9vw, 38px); }
+  .ai-panel .lede { font-size: 15px; line-height: 1.55; }
+  .ai-demo { margin-top: 22px; }
+  .ai-input { padding: 12px 14px; font-size: 14px; }
+  .ai-visual { margin-top: 0; }
+  .ai-visual .phone { width: min(210px, 56vw); }
 }
 
 /* ═══ GALERİ (marquee) ═══ */
