@@ -696,7 +696,12 @@ h2 { font-size: clamp(30px, 4.5vw, 52px); font-weight: 700; }
   .ai-demo { margin-top: 22px; }
   .ai-input { padding: 12px 14px; font-size: 14px; }
   .ai-visual { margin-top: 0; }
-  .ai-visual .phone { width: min(210px, 56vw); }
+.ai-visual .phone {
+    width: min(210px, 56vw);
+    padding: 4px;
+    border-radius: 30px;
+  }
+  .ai-visual .screen { border-radius: 26px; }
 }
 
 /* ═══ GALERİ (marquee) ═══ */
