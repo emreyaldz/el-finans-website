@@ -23,11 +23,58 @@
       privacyEndObserver.observe(privacyEndMarker);
     }
   }
+  // ── Mobil menü: soldan açılır çekmece ──
+  // Nav linklerinden kopyalanarak JS ile kurulur; tüm sayfalarda ortaktır.
+  var navBurger = document.querySelector('.nav-burger');
+  if (navBurger) {
+    var drawer = document.createElement('div');
+    drawer.className = 'drawer';
+    drawer.setAttribute('role', 'dialog');
+    drawer.setAttribute('aria-modal', 'true');
+    drawer.setAttribute('aria-label', 'Menü');
+    drawer.setAttribute('aria-hidden', 'true');
+    var drawerLinksHtml = '';
+    Array.prototype.forEach.call(document.querySelectorAll('.nav-links a'), function (a) {
+      drawerLinksHtml += '<a href="' + a.getAttribute('href') + '"' +
+        (a.dataset.en ? ' data-en="' + a.dataset.en + '"' : '') + '>' + a.innerHTML + '</a>';
+    });
+    drawer.innerHTML =
+      '<div class="drawer-head">' +
+        '<a class="brand" href="index.html" aria-label="EL Finans"><span class="brand-mark"><img src="images/logo-nav.png" alt="" width="42" height="42"></span><span class="brand-name">Finans</span></a>' +
+        '<button type="button" class="drawer-close" aria-label="Menüyü kapat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>' +
+      '</div>' +
+      '<nav class="drawer-links">' + drawerLinksHtml + '</nav>' +
+      '<div class="drawer-lang"><h5>Dil / Language</h5><div class="opts">' +
+        '<button type="button" data-set-lang="tr">Türkçe</button>' +
+        '<button type="button" data-set-lang="en">English</button>' +
+      '</div></div>';
+    var drawerBackdrop = document.createElement('div');
+    drawerBackdrop.className = 'drawer-backdrop';
+    document.body.appendChild(drawerBackdrop);
+    document.body.appendChild(drawer);
+    var setDrawer = function (open) {
+      drawer.classList.toggle('open', open);
+      drawerBackdrop.classList.toggle('show', open);
+      document.body.classList.toggle('drawer-open', open);
+      drawer.setAttribute('aria-hidden', String(!open));
+      navBurger.setAttribute('aria-expanded', String(open));
+    };
+    navBurger.addEventListener('click', function () { setDrawer(true); });
+    drawerBackdrop.addEventListener('click', function () { setDrawer(false); });
+    drawer.querySelector('.drawer-close').addEventListener('click', function () { setDrawer(false); });
+    Array.prototype.forEach.call(drawer.querySelectorAll('.drawer-links a'), function (a) {
+      a.addEventListener('click', function () { setDrawer(false); });
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && drawer.classList.contains('open')) setDrawer(false);
+    });
+  }
+
   // ── Dil değişimi (TR/EN) ──
   // data-en="..." taşıyan elemanların içeriği değiştirilir.
   var LANG_KEY = 'el-finans-language';
   var renderAiDemo = null; // yapay zeka örnek çıktısı; aşağıda tanımlanır
-  var langButtons = document.querySelectorAll('.lang-switch [data-set-lang]');
+  var langButtons = document.querySelectorAll('[data-set-lang]');
   var langRoot = document.querySelector('.lang-switch');
   var langToggle = document.querySelector('.lang-toggle');
   var langCurrent = document.querySelector('.lang-current');
