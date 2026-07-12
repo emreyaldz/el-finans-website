@@ -239,7 +239,7 @@ h2 { font-size: clamp(30px, 4.5vw, 52px); font-weight: 700; }
 .phone {
   width: min(300px, 78vw);
   background: #0b0f1a;
-  border-radius: 46px;
+  border-radius: 30px;
   padding: 5px;
   box-shadow: 0 40px 80px rgba(15, 31, 75, 0.28), 0 8px 24px rgba(15, 31, 75, 0.15);
   will-change: transform;
@@ -248,7 +248,7 @@ h2 { font-size: clamp(30px, 4.5vw, 52px); font-weight: 700; }
 .phone.float { animation: float 7s ease-in-out infinite; }
 @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
 .screen {
-  background: #f6f8fd; border-radius: 41px; overflow: hidden;
+  background: #f6f8fd; border-radius: 25px; overflow: hidden;
   position: relative;
 }
 .screen img { display: block; width: 100%; height: auto; }
@@ -701,7 +701,7 @@ h2 { font-size: clamp(30px, 4.5vw, 52px); font-weight: 700; }
     padding: 4px;
     border-radius: 30px;
   }
-  .ai-visual .screen { border-radius: 26px; }
+  .ai-visual .screen { border-radius: 25px; }
 }
 
 /* ═══ GALERİ (marquee) ═══ */
