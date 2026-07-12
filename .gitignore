@@ -1,0 +1,5 @@
+# Yerel araç konfigürasyonları — yayına dahil edilmez
+.claude/
+.agents/
+.codex/
+__pycache__/

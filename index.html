@@ -1,335 +1,326 @@
 <!doctype html>
-<html lang="tr">
+<html lang="tr" data-active-lang="tr">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>EL Finans — Kişisel Bütçe Yönetimi</title>
+  <title>EL Finans</title>
   <meta name="description" content="EL Finans: gelir-gider takibi, ortak hesap, kredi kartı yönetimi, yapay zeka destekli kayıt, bütçe limitleri ve uçtan uca şifreli kişisel finans uygulaması.">
   <meta property="og:title" content="EL Finans — Paranızı tek bakışta kontrol edin">
   <meta property="og:description" content="Gelir, gider, birikim ve kredi kartlarınız tek uygulamada. Uçtan uca şifreli, yapay zeka destekli.">
   <meta property="og:type" content="website">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="apple-touch-icon" href="images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <nav class="nav">
-  <a class="brand" href="index.html"><span class="brand-mark">EL</span> EL Finans</a>
+  <a class="brand" href="index.html" aria-label="EL Finans"><span class="brand-mark"><img src="images/logo-nav.png" alt="" width="42" height="42"></span><span class="brand-name">Finans</span></a>
   <div class="nav-links">
-    <a href="#ozellikler">Özellikler</a>
-    <a href="#guvenlik">Güvenlik</a>
-    <a href="support.html">Destek</a>
-    <a class="nav-cta" href="#indir">İndir</a>
+    <a href="#ozellikler" data-en="Features">Özellikler</a>
+    <a href="#guvenlik" data-en="Security">Güvenlik</a>
+    <a href="support.html" data-en="Support">Destek</a>
+    <a class="nav-cta" href="#indir" data-en="Download">İndir</a>
+  </div>
+  <div class="lang-switch" aria-label="Dil / Language">
+    <button type="button" class="lang-toggle" aria-haspopup="listbox" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      <span class="lang-current">TR</span>
+      <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+    <div class="lang-menu">
+      <button type="button" data-set-lang="tr" aria-pressed="true">Türkçe</button>
+      <button type="button" data-set-lang="en" aria-pressed="false">English</button>
+    </div>
   </div>
 </nav>
 
-<!-- ─── HERO ─── -->
-<header class="section" id="top">
-  <div class="section-inner">
-    <div class="copy reveal">
-      <span class="badge">Kişisel Bütçe</span>
-      <h1>Paranızı <span class="accent">tek bakışta</span> kontrol edin</h1>
-      <p class="lede">Gelir, gider ve net durumunuzu anlık görün. Aylık dağılımı keşfedin, birikimlerinizi büyütün — hepsi uçtan uca şifreli.</p>
-      <div class="store-buttons" style="justify-content:flex-start">
+<!-- ═══ HERO ═══ -->
+<header class="hero" id="top">
+  <div class="hero-bg" aria-hidden="true">
+    <div class="hero-dots"></div>
+    <span class="orb orb-1"></span>
+    <span class="orb orb-2"></span>
+    <span class="orb orb-3"></span>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <span class="badge" data-en="Personal Finance App">Kişisel Finans Uygulaması</span>
+      <h1 id="hero-title" data-en='Control your money <span class="accent">at a glance</span>'>Paranızı <span class="accent">tek bakışta</span> kontrol edin</h1>
+      <p class="lede" data-en="See your income, expenses and net position instantly. Explore the monthly breakdown and grow your savings — all end-to-end encrypted.">Gelir, gider ve net durumunuzu anlık görün. Aylık dağılımı keşfedin, birikimlerinizi büyütün — hepsi uçtan uca şifreli.</p>
+      <div class="store-buttons">
         <a class="store-btn" href="#indir" aria-label="App Store">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8.98-.2 1.92-.86 3.08-.78 1.79.14 3.02.86 3.81 2.14-3.5 2.1-2.94 6.73.61 8.16-.63 1.29-1.45 2.57-2.58 2.65zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
-          <span class="t"><small>App Store</small><b>İndir</b></span>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.03 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
+          <span class="t"><small>App Store</small><b data-en="Download">İndir</b></span>
         </a>
         <a class="store-btn" href="#indir" aria-label="Google Play">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 1.8c-.3.3-.5.8-.5 1.4v17.6c0 .6.2 1.1.5 1.4l.1.1 9.9-9.9v-.2L3.7 1.7l-.1.1zm13.4 8L14.5 12l2.5 2.2 3.2-1.8c.9-.5.9-1.3 0-1.8l-3.2-1.8v1zm-1 5.1L13.6 12l-9.4 9.4c.3.1.7.1 1.1-.1l10.7-6.4zM4.2 2.7 13.6 12l2.4-2.9L5.3 2.6c-.4-.2-.8-.2-1.1.1z"/></svg>
-          <span class="t"><small>Google Play</small><b>Edinin</b></span>
+          <svg viewBox="0 0 23.5 26" aria-hidden="true">
+            <defs>
+              <linearGradient id="gp1a" x1=".91" y1=".05" x2=".16" y2=".92"><stop offset="0" stop-color="#00A0FF"/><stop offset="1" stop-color="#00E3FF"/></linearGradient>
+              <linearGradient id="gp1b" x1="1" y1=".5" x2="0" y2=".5"><stop offset="0" stop-color="#FFE000"/><stop offset="1" stop-color="#FF9C00"/></linearGradient>
+              <linearGradient id="gp1c" x1=".86" y1=".12" x2=".14" y2=".88"><stop offset="0" stop-color="#FF3A44"/><stop offset="1" stop-color="#C31162"/></linearGradient>
+              <linearGradient id="gp1d" x1=".14" y1=".1" x2=".86" y2=".86"><stop offset="0" stop-color="#32A071"/><stop offset="1" stop-color="#00F076"/></linearGradient>
+            </defs>
+            <path fill="url(#gp1a)" d="M.7.5C.4.8.3 1.3.3 1.9v22.1c0 .6.2 1.1.5 1.4l.1.1 12.4-12.4v-.3L.7.5z"/>
+            <path fill="url(#gp1b)" d="M17.4 17.3l-4.1-4.1v-.3l4.1-4.1.1.1 4.9 2.8c1.4.8 1.4 2.1 0 2.9l-4.9 2.8-.1-.1z"/>
+            <path fill="url(#gp1c)" d="M17.5 17.2L13.3 13 .7 25.6c.5.5 1.2.5 2.1.1l14.7-8.5z"/>
+            <path fill="url(#gp1d)" d="M17.5 8.8L2.8.4C1.9-.1 1.2 0 .7.5L13.3 13l4.2-4.2z"/>
+          </svg>
+          <span class="t"><small>Google Play</small><b data-en="Download">İndir</b></span>
         </a>
       </div>
+      <ul class="trust-chips">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span data-en="End-to-end encrypted">Uçtan uca şifreli</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg><span data-en="AI-powered">Yapay zeka destekli</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span data-en="7 languages">7 dil desteği</span></li>
+      </ul>
     </div>
-    <div class="visual reveal-scale">
-      <div class="phone float" data-parallax>
+    <div class="hero-visual">
+      <div class="phone">
         <div class="screen">
-          <div class="notch"></div>
-          <div class="m-hero">
-            <span class="month">Temmuz 2026 ▾</span>
-            <div class="el">EL</div>
-            <div class="sub">Kişisel Bütçe Yönetimi</div>
-            <div class="m-stats">
-              <div class="m-stat"><div class="k">GELİR</div><div class="v g">₺82.000</div></div>
-              <div class="m-stat"><div class="k">GİDER</div><div class="v r">₺57.500</div></div>
-              <div class="m-stat"><div class="k">NET</div><div class="v">₺24.500</div></div>
-            </div>
-          </div>
-          <div class="m-card">
-            <div class="m-title">◔ Finansal Dağılım</div>
-            <div class="donut"></div>
-            <div class="m-row"><span class="dot f-red"></span><span class="grow">Kira</span><span class="amt r">₺25.000</span><span class="pct">%43</span></div>
-            <div class="m-row"><span class="dot f-green"></span><span class="grow">Market</span><span class="amt">₺13.000</span><span class="pct">%23</span></div>
-            <div class="m-row"><span class="dot f-amber"></span><span class="grow">Kredi Borcu</span><span class="amt">₺10.000</span><span class="pct">%17</span></div>
-          </div>
+          <span class="island" aria-hidden="true"></span>
+          <img src="images/screens/thumbs/özet.PNG" alt="EL Finans özet ekranı — gelir, gider, net durum ve finansal dağılım grafiği" width="1206" height="2622" fetchpriority="high">
         </div>
+      </div>
+      <div class="float-chip chip-income" aria-hidden="true">
+        <span class="fc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg></span>
+        <span><small data-en="Income">Gelir</small><b>₺82.000</b></span>
+      </div>
+      <div class="float-chip chip-expense" aria-hidden="true">
+        <span class="fc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg></span>
+        <span><small data-en="Expenses">Gider</small><b>₺57.500</b></span>
+      </div>
+      <div class="float-chip chip-net" aria-hidden="true">
+        <span class="fc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="m7 14 4-4 4 4 5-6"/></svg></span>
+        <span><small data-en="Net Position">Net Durum</small><b>₺24.500</b></span>
       </div>
     </div>
   </div>
 </header>
 
-<!-- ─── ORTAK HESAP & KARTLAR ─── -->
-<section class="section" id="ozellikler">
-  <div class="section-inner reverse">
-    <div class="copy reveal">
-      <span class="badge">Ortak Hesap &amp; Kartlar</span>
-      <h2>Bütçeyi <span class="accent">birlikte</span> yönetin</h2>
-      <p class="lede">Ortak hesapta kim ne harcadı anında görün. Kredi kartlarınızı limit, ekstre ve son ödeme tarihiyle takip edin.</p>
+<!-- ═══ İSTATİSTİKLER ═══ -->
+<section class="stats stagger">
+  <div class="stat"><b><span data-count="7">0</span></b><span data-en="Language Support">Dil Desteği</span></div>
+  <div class="stat"><b>AES-<span data-count="256">0</span></b><span data-en="Bit Encryption">Bit Şifreleme</span></div>
+  <div class="stat"><b><span data-count="15">0</span><span class="unit">+</span></b><span data-en="Feature Screens">Özellik Ekranı</span></div>
+  <div class="stat"><b><span data-count="4">0</span></b><span data-en="AI Features">AI Özellikler</span></div>
+</section>
+
+<!-- ═══ ÖZELLİKLER: YAPIŞKAN VİTRİN ═══ -->
+<section class="showcase" id="ozellikler">
+  <div class="showcase-stage">
+  <div class="section-head">
+    <span class="badge reveal" data-en="Features">Özellikler</span>
+    <h2 class="reveal" data-en='Everything in <span class="accent">one app</span>'>Her şey <span class="accent">tek uygulamada</span></h2>
+    <p class="lede reveal" data-en="Scroll through the features; the screen keeps up with you.">Özellikler arasında gezinin; ekran size ayak uydursun.</p>
+  </div>
+  <div class="showcase-wrap">
+    <div class="steps">
+      <div class="step active" data-shot="0">
+        <span class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+        <div>
+          <h3 data-en="Shared Account &amp; Cards">Ortak Hesap &amp; Kartlar</h3>
+          <p data-en="See instantly who spent what in the shared account. Track your credit cards with limits, statements and due dates.">Ortak hesapta kim ne harcadı anında görün. Kredi kartlarınızı limit, ekstre ve son ödeme tarihiyle takip edin.</p>
+          <div class="step-phone"><img src="images/screens/thumbs/ortak-hesap.PNG" alt="Ortak hesap dağılımı ve kredi kartı takibi ekranı" width="1206" height="2622" loading="lazy" decoding="async"></div>
+        </div>
+      </div>
+      <div class="step" data-shot="1">
+        <span class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg></span>
+        <div>
+          <h3 data-en="Budget Limits">Bütçe Limitleri</h3>
+          <p data-en="Plan your cash flow. Set category-based targets and get automatic alerts as you approach a limit.">Nakit akışınızı planlayın. Kategori bazlı hedefler koyun, limite yaklaşınca otomatik uyarı alın.</p>
+          <div class="step-phone"><img src="images/screens/thumbs/butce-hedefleri.PNG" alt="Nakit akışı ve aylık bütçe hedefleri ekranı" width="1206" height="2622" loading="lazy" decoding="async"></div>
+        </div>
+      </div>
+      <div class="step" data-shot="2">
+        <span class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg></span>
+        <div>
+          <h3 data-en="Calendar View">Takvim Görünümü</h3>
+          <p data-en="Income and expense dots on a monthly calendar. Every detail of the selected day, one tap away.">Aylık takvimde gelir/gider noktaları. Seçtiğiniz günün tüm detayları tek dokunuşla önünüzde.</p>
+          <div class="step-phone"><img src="images/screens/thumbs/takvim.PNG" alt="Takvim görünümü — günlük gelir ve gider detayları" width="1206" height="2622" loading="lazy" decoding="async"></div>
+        </div>
+      </div>
+      <div class="step" data-shot="3">
+        <span class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg></span>
+        <div>
+          <h3 data-en="Asset Allocation">Varlık Dağılımı</h3>
+          <p data-en="Gold, foreign currency, time deposits and goal piggy banks in a single view. Live TRY value with real market rates.">Altın, döviz, vadeli mevduat ve hedef kumbaralar tek görselde. Gerçek piyasa kurlarıyla anlık TRY karşılığı.</p>
+          <div class="step-phone"><img src="images/screens/thumbs/varlik-dagilimi.PNG" alt="Varlık dağılımı — altın, döviz ve birikimlerin grafiği" width="1206" height="2622" loading="lazy" decoding="async"></div>
+        </div>
+      </div>
+      <div class="step" data-shot="4">
+        <span class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M8 13h2"/><path d="M8 17h2"/><path d="M14 13h2"/><path d="M14 17h2"/></svg></span>
+        <div>
+          <h3 data-en="Reports &amp; Export">Rapor &amp; Dışa Aktarım</h3>
+          <p data-en="Get analysis from the AI financial advisor; download your monthly or periodic Excel and PDF reports in one click.">Yapay zeka finansal danışmandan analiz alın; aylık veya dönemsel Excel ve PDF raporlarınızı tek tıkla indirin.</p>
+          <div class="step-phone"><img src="images/screens/thumbs/rapor-al.PNG" alt="Finansal danışman ve Excel/PDF rapor alma ekranı" width="1206" height="2622" loading="lazy" decoding="async"></div>
+        </div>
+      </div>
     </div>
-    <div class="visual reveal-scale">
-      <div class="phone" data-parallax>
+    <div class="showcase-sticky">
+      <div class="phone">
         <div class="screen">
-          <div class="notch"></div>
-          <div class="m-card">
-            <div class="m-title">👥 Ortak Hesap Dağılımı</div>
-            <div class="m-row"><span class="dot f-blue"></span><span class="grow">Kemal</span><span class="amt">₺18.000</span><span class="pct">%90</span></div>
-            <div class="bar"><i class="f-blue w90"></i></div>
-            <div class="m-row"><span class="dot f-green"></span><span class="grow">Mehmet</span><span class="amt">₺2.000</span><span class="pct">%10</span></div>
-            <div class="bar"><i class="f-green w13"></i></div>
-            <div class="m-btnrow"><div class="m-btn fill">Kişi Dağılımını Gör ›</div></div>
-          </div>
-          <div class="m-card cc">
-            <div class="cc-head">
-              <div class="cc-logo">KK</div>
-              <div><div class="cc-name">Kredi Kartım</div><div class="cc-digits">**** 3647</div></div>
-              <div class="cc-debt"><div class="k">Kalan Borç</div><div class="v">₺6.500</div></div>
-            </div>
-            <div class="cc-grid">
-              <span>Kullanılabilir<b>₺42.500</b></span>
-              <span style="text-align:right">Kart Limiti<b>₺50.000</b></span>
-            </div>
-            <div class="bar"><i class="f-red w13"></i></div>
-            <div class="cc-grid">
-              <span>Ekstre Tarihi<b>05.07.2026</b></span>
-              <span style="text-align:right">Son Ödeme · 10 gün<b>15.07.2026</b></span>
-            </div>
-            <div class="m-btnrow">
-              <div class="m-btn soft">Kart Detayı</div>
-              <div class="m-btn line">+ Ödeme</div>
-            </div>
-          </div>
+          <span class="island" aria-hidden="true"></span>
+          <img class="active" src="images/screens/thumbs/ortak-hesap.PNG" alt="Ortak hesap dağılımı ve kredi kartı takibi ekranı" width="1206" height="2622" decoding="async">
+          <img src="images/screens/thumbs/butce-hedefleri.PNG" alt="Nakit akışı ve aylık bütçe hedefleri ekranı" width="1206" height="2622" decoding="async">
+          <img src="images/screens/thumbs/takvim.PNG" alt="Takvim görünümü — günlük gelir ve gider detayları" width="1206" height="2622" decoding="async">
+          <img src="images/screens/thumbs/varlik-dagilimi.PNG" alt="Varlık dağılımı — altın, döviz ve birikimlerin grafiği" width="1206" height="2622" decoding="async">
+          <img src="images/screens/thumbs/rapor-al.PNG" alt="Finansal danışman ve Excel/PDF rapor alma ekranı" width="1206" height="2622" decoding="async">
         </div>
       </div>
     </div>
   </div>
+  </div>
 </section>
 
-<!-- ─── BÜTÇE LİMİTLERİ ─── -->
-<section class="section">
-  <div class="section-inner">
-    <div class="copy reveal">
-      <span class="badge">Bütçe Limitleri</span>
-      <h2>Limitleri <span class="accent">aşmadan</span> harcayın</h2>
-      <p class="lede">Nakit akışınızı planlayın. Kategori bazlı hedefler koyun, limite yaklaşınca otomatik uyarı alın.</p>
+<!-- ═══ YAPAY ZEKA DEMOSU ═══ -->
+<section class="ai-section immersive-section" id="yapay-zeka">
+  <div class="immersive-stage">
+  <div class="ai-panel reveal-scale">
+    <div>
+      <span class="badge" data-en="AI Assistant">Yapay Zeka Asistan</span>
+      <h2 data-en='Just describe it — <span class="accent" style="background:linear-gradient(120deg,#60a5fa,#93c5fd);-webkit-background-clip:text;background-clip:text">we handle the rest</span>'>Sadece yazın — <span class="accent" style="background:linear-gradient(120deg,#60a5fa,#93c5fd);-webkit-background-clip:text;background-clip:text">gerisi bizde</span></h2>
+      <p class="lede" data-en="Describe it in natural language; AI fills in the amount, category and date automatically. You can also snap a receipt photo — the assistant prepares the form for you.">Doğal dilde anlatın; yapay zeka tutar, kategori ve tarihi otomatik doldursun. Fiş fotoğrafı da çekebilirsiniz — asistan formu sizin için hazırlar.</p>
+      <div class="ai-demo" aria-hidden="true">
+        <div class="ai-input">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg>
+          <span class="ai-typed" id="ai-typed"></span>
+          <span class="ai-caret"></span>
+        </div>
+        <div class="ai-result" id="ai-result">
+          <span class="ai-tag"><small data-en="Amount">Tutar</small><span class="v"></span></span>
+          <span class="ai-tag"><small data-en="Category">Kategori</small><span class="v"></span></span>
+          <span class="ai-tag"><small data-en="Date">Tarih</small><span class="v"></span></span>
+        </div>
+      </div>
+      <p class="ai-note" data-en="Sample output — that's really all it takes in the app.">Örnek çıktı — uygulamada gerçekten bu kadar kolay.</p>
     </div>
-    <div class="visual reveal-scale">
+    <div class="ai-visual">
       <div class="phone" data-parallax>
         <div class="screen">
-          <div class="notch"></div>
-          <div class="m-card">
-            <div class="m-title">〜 Nakit Akışı</div>
-            <div class="m-row"><span class="grow">Devreden Bakiye</span><span class="amt">₺318.500</span></div>
-            <div class="m-row"><span class="grow">Dönem İçi Gelir</span><span class="amt g">+₺82.000</span></div>
-            <div class="m-row"><span class="grow">Dönem İçi Gider</span><span class="amt r">−₺57.500</span></div>
-            <div class="m-row"><span class="grow"><b>Tahmini Kapanış</b></span><span class="amt b">₺343.000</span></div>
-          </div>
-          <div class="m-card">
-            <div class="m-title">◎ Aylık Bütçe Hedefleri</div>
-            <div class="m-row" style="background:none;padding:4px 0"><span class="grow">Fatura</span><span class="amt r">₺5.000</span><span class="pct">/ ₺5.000</span></div>
-            <div class="bar"><i class="f-red w100"></i></div>
-            <div class="m-warn r">⚠ Bütçe limiti aşıldı!</div>
-            <div class="m-row" style="background:none;padding:4px 0"><span class="grow">Market</span><span class="amt o">₺13.000</span><span class="pct">/ ₺15.000</span></div>
-            <div class="bar"><i class="f-amber w87"></i></div>
-            <div class="m-warn o">⚠ Limite çok yaklaştınız.</div>
-            <div class="m-row" style="background:none;padding:4px 0"><span class="grow">Abonelik</span><span class="amt b">₺2.500</span><span class="pct">/ ₺4.500</span></div>
-            <div class="bar"><i class="f-sky w56"></i></div>
-            <div class="m-btnrow"><div class="m-btn soft">＋ Yeni Limit Ekle / Düzenle</div></div>
-          </div>
+          <span class="island" aria-hidden="true"></span>
+          <img src="images/screens/thumbs/hizli-kayit-asistani.PNG" alt="Yapay zeka destekli hızlı kayıt asistanı ekranı" width="1206" height="2622" decoding="async">
         </div>
       </div>
     </div>
   </div>
-</section>
-
-<!-- ─── YAPAY ZEKA ─── -->
-<section class="section">
-  <div class="section-inner reverse">
-    <div class="copy reveal">
-      <span class="badge">✨ Yapay Zeka</span>
-      <h2>&ldquo;Markete 450 TL&rdquo; <span class="accent">yazın, gerisi bizde</span></h2>
-      <p class="lede">Doğal dilde anlatın; yapay zeka tutar, kategori ve tarihi otomatik doldursun. Fiş fotoğrafı da çekebilirsiniz — asistan formu sizin için hazırlar.</p>
-    </div>
-    <div class="visual reveal-scale">
-      <div class="phone" data-parallax>
-        <div class="screen">
-          <div class="notch"></div>
-          <div class="m-card">
-            <div class="m-title">✦ Hızlı Kayıt Asistanı <span class="ai-pill">AI Yapay Zeka <span class="sw"></span></span></div>
-            <div class="m-btnrow" style="margin-top:8px">
-              <div class="m-btn fill">Serbest Metin</div>
-              <div class="m-btn soft">Görüntü</div>
-            </div>
-            <div class="m-input">Örn: &lsquo;Dün marketten 450 liraya alışveriş yaptım&rsquo;, &lsquo;Netflix 650 TL her ay&rsquo;, &lsquo;Maaş 65.000 banka 12.04.2026&rsquo;</div>
-            <div class="m-btnrow"><div class="m-btn fill">✦ Metinden Doldur</div></div>
-          </div>
-          <div class="m-card">
-            <div class="m-title">✎ Manuel Kayıt Ekle</div>
-            <div class="m-btnrow" style="margin-top:2px">
-              <div class="m-btn soft">Gelir</div>
-              <div class="m-btn fill">Gider</div>
-            </div>
-            <div class="m-row"><span class="grow">Tutar</span><span class="amt">TRY · USD · EUR · GBP</span></div>
-            <div class="m-row"><span class="grow">Kategori</span><span class="amt">Abonelik ▾</span></div>
-            <div class="m-row"><span class="grow">Hesap</span><span class="amt">Nakit ▾</span></div>
-            <div class="m-btnrow"><div class="m-btn fill">Kaydet</div><div class="m-btn soft">Temizle</div></div>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
-<!-- ─── TAKVİM ─── -->
-<section class="section">
-  <div class="section-inner">
-    <div class="copy reveal">
-      <span class="badge">Takvim Görünümü</span>
-      <h2>Geliriniz ve gideriniz <span class="accent">günü gününe</span></h2>
-      <p class="lede">Aylık takvimde gelir/gider noktaları. Seçtiğiniz günün tüm detayları tek dokunuşla önünüzde.</p>
+<!-- ═══ UYGULAMADAN KARELER ═══ -->
+<section class="gallery immersive-section">
+  <div class="immersive-stage">
+  <div class="section-head">
+    <span class="badge reveal" data-en="More Inside">Dahası da Var</span>
+    <h2 class="reveal" data-en='Every corner of the app, <span class="accent">thought through</span>'>Uygulamanın her köşesi <span class="accent">düşünüldü</span></h2>
+    <p class="lede reveal" data-en="Transactions, piggy banks, savings hunter, debt tracking, recurring records and more.">İşlemler, kumbaralar, tasarruf avcısı, borç takibi, sabit kayıtlar ve daha fazlası.</p>
+  </div>
+  <div class="marquee">
+    <div class="marquee-track">
+      <button class="shot" type="button" data-full="images/screens/08-islemler.png" aria-label="İşlem listesi ekranını büyüt"><img src="images/screens/08-islemler.png" alt="İşlem listesi ekranı" width="1242" height="2688" loading="lazy" decoding="async"></button>
+      <button class="shot" type="button" data-full="images/screens/14-varliklarim.png" aria-label="Varlıklarım ekranını büyüt"><img src="images/screens/14-varliklarim.png" alt="Varlıklarım ekranı" width="1242" height="2688" loading="lazy" decoding="async"></button>
+      <button class="shot" type="button" data-full="images/screens/13-kumbaralar.png" aria-label="Hedef kumbaralar ekranını büyüt"><img src="images/screens/13-kumbaralar.png" alt="Hedef kumbaralar ekranı" width="1242" height="2688" loading="lazy" decoding="async"></button>
+      <button class="shot" type="button" data-full="images/screens/07-tasarruf-avcisi.png" aria-label="Tasarruf avcısı ekranını büyüt"><img src="images/screens/07-tasarruf-avcisi.png" alt="Tasarruf avcısı ekranı" width="1242" height="2688" loading="lazy" decoding="async"></button>
+      <button class="shot" type="button" data-full="images/screens/12-borc-alacak.png" aria-label="Borç ve alacak takibi ekranını büyüt"><img src="images/screens/12-borc-alacak.png" alt="Borç ve alacak takibi ekranı" width="1242" height="2688" loading="lazy" decoding="async"></button>
+      <button class="shot" type="button" data-full="images/screens/09-sabit-kayitlar.png" aria-label="Sabit kayıtlar ekranını büyüt"><img src="images/screens/09-sabit-kayitlar.png" alt="Sabit kayıtlar ekranı" width="1242" height="2688" loading="lazy" decoding="async"></button>
+      <button class="shot" type="button" data-full="images/screens/06-manuel-kayit.png" aria-label="Manuel kayıt ekranını büyüt"><img src="images/screens/06-manuel-kayit.png" alt="Manuel kayıt ekranı" width="1242" height="2688" loading="lazy" decoding="async"></button>
+      <button class="shot" type="button" data-full="images/screens/15-ayarlar.png" aria-label="Ayarlar ekranını büyüt"><img src="images/screens/15-ayarlar.png" alt="Ayarlar ekranı" width="1242" height="2688" loading="lazy" decoding="async"></button>
     </div>
-    <div class="visual reveal-scale">
-      <div class="phone" data-parallax>
-        <div class="screen">
-          <div class="notch"></div>
-          <div class="m-card">
-            <div class="m-title">🗓 Takvim Görünümü — Temmuz 2026</div>
-            <div class="cal">
-              <div class="h">PZT</div><div class="h">SAL</div><div class="h">ÇAR</div><div class="h">PER</div><div class="h">CUM</div><div class="h">CMT</div><div class="h">PAZ</div>
-              <div class="d">1</div><div class="d">2<span class="dots"><span class="p f-green"></span><span class="p f-red"></span></span></div><div class="d">3</div><div class="d">4<span class="dots"><span class="p f-red"></span></span></div><div class="d">5</div><div class="d">6</div><div class="d">7</div>
-              <div class="d">8</div><div class="d">9</div><div class="d">10<span class="dots"><span class="p f-green"></span></span></div><div class="d">11</div><div class="d">12</div><div class="d">13</div><div class="d">14</div>
-              <div class="d sel">15<span class="dots"><span class="p f-green"></span><span class="p f-red"></span></span></div><div class="d">16</div><div class="d">17</div><div class="d">18</div><div class="d">19</div><div class="d">20<span class="dots"><span class="p f-red"></span></span></div><div class="d">21</div>
-            </div>
-          </div>
-          <div class="m-card">
-            <div class="m-title">15 Temmuz 2026 Detay</div>
-            <div class="m-btnrow" style="margin-top:2px">
-              <div class="m-btn green">Gelir · ₺85.000</div>
-              <div class="m-btn red">Gider · ₺20.000</div>
-            </div>
-            <div class="m-row"><span class="dot f-green"></span><span class="grow">Maaş <span class="pct">BANKA · SABİT</span></span><span class="amt g">+₺85.000</span></div>
-            <div class="m-row"><span class="dot f-red"></span><span class="grow">Kredi Borcu <span class="pct">BANKA · SABİT</span></span><span class="amt r">−₺20.000</span></div>
-          </div>
-        </div>
-      </div>
+    <div class="marquee-track" aria-hidden="true">
+      <button class="shot" type="button" data-full="images/screens/08-islemler.png" tabindex="-1"><img src="images/screens/08-islemler.png" alt="" width="1242" height="2688" loading="lazy" decoding="async"></button>
+      <button class="shot" type="button" data-full="images/screens/14-varliklarim.png" tabindex="-1"><img src="images/screens/14-varliklarim.png" alt="" width="1242" height="2688" loading="lazy" decoding="async"></button>
+      <button class="shot" type="button" data-full="images/screens/13-kumbaralar.png" tabindex="-1"><img src="images/screens/13-kumbaralar.png" alt="" width="1242" height="2688" loading="lazy" decoding="async"></button>
+      <button class="shot" type="button" data-full="images/screens/07-tasarruf-avcisi.png" tabindex="-1"><img src="images/screens/07-tasarruf-avcisi.png" alt="" width="1242" height="2688" loading="lazy" decoding="async"></button>
+      <button class="shot" type="button" data-full="images/screens/12-borc-alacak.png" tabindex="-1"><img src="images/screens/12-borc-alacak.png" alt="" width="1242" height="2688" loading="lazy" decoding="async"></button>
+      <button class="shot" type="button" data-full="images/screens/09-sabit-kayitlar.png" tabindex="-1"><img src="images/screens/09-sabit-kayitlar.png" alt="" width="1242" height="2688" loading="lazy" decoding="async"></button>
+      <button class="shot" type="button" data-full="images/screens/06-manuel-kayit.png" tabindex="-1"><img src="images/screens/06-manuel-kayit.png" alt="" width="1242" height="2688" loading="lazy" decoding="async"></button>
+      <button class="shot" type="button" data-full="images/screens/15-ayarlar.png" tabindex="-1"><img src="images/screens/15-ayarlar.png" alt="" width="1242" height="2688" loading="lazy" decoding="async"></button>
     </div>
+  </div>
   </div>
 </section>
 
-<!-- ─── VARLIK & BİRİKİM ─── -->
-<section class="section">
-  <div class="section-inner reverse">
-    <div class="copy reveal">
-      <span class="badge">Varlık Dağılımı</span>
-      <h2>Servetinizin <span class="accent">tam tablosu</span></h2>
-      <p class="lede">Altın, döviz, vadeli mevduat ve hedef kumbaralar tek görselde. Gerçek piyasa kurlarıyla anlık TRY karşılığı ve kâr/zarar bilgisi.</p>
-    </div>
-    <div class="visual reveal-scale">
-      <div class="phone" data-parallax>
-        <div class="screen">
-          <div class="notch"></div>
-          <div class="m-card">
-            <div class="m-title">◔ Varlık Dağılımı <span class="ai-pill">Toplam: ₺1.517.199</span></div>
-            <div class="donut assets"></div>
-            <div class="m-row"><span class="dot f-blue"></span><span class="grow">Araba</span><span class="amt">₺500.000</span></div>
-            <div class="m-row"><span class="dot" style="background:#a855f7"></span><span class="grow">Ev</span><span class="amt">₺500.000</span></div>
-            <div class="m-row"><span class="dot f-amber"></span><span class="grow">Altın <span class="pct">75 gr</span></span><span class="amt g">₺470.795 <span class="pct" style="color:#059669">+%4,6</span></span></div>
-            <div class="m-row"><span class="dot" style="background:#ec4899"></span><span class="grow">Dolar <span class="pct">500 $</span></span><span class="amt g">₺23.404 <span class="pct" style="color:#059669">+%4,0</span></span></div>
-          </div>
-          <div class="m-card">
-            <div class="m-title">🛡 Acil Durum Fonu</div>
-            <div class="m-row" style="background:none;padding:4px 0"><span class="grow">Hedef: ₺101.625</span><span class="amt b">%23</span></div>
-            <div class="bar"><i class="f-sky w25"></i></div>
-          </div>
-        </div>
-      </div>
-    </div>
+<div class="shot-modal" id="shot-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Ekran görüntüsü önizleme">
+  <button class="shot-modal-close" type="button" aria-label="Önizlemeyi kapat">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+  </button>
+  <div class="shot-modal-frame">
+    <img src="" alt="">
   </div>
-</section>
+</div>
 
-<!-- ─── RAPORLAR ─── -->
-<section class="section">
-  <div class="section-inner">
-    <div class="copy reveal">
-      <span class="badge">Rapor &amp; Dışa Aktarım</span>
-      <h2><span class="accent">Excel ve PDF</span> raporları</h2>
-      <p class="lede">Yapay zeka finansal danışmandan analiz alın; aylık veya dönemsel raporlarınızı tek tıkla indirin.</p>
-    </div>
-    <div class="visual reveal-scale">
-      <div class="phone" data-parallax>
-        <div class="screen">
-          <div class="notch"></div>
-          <div class="m-card">
-            <div class="m-title">👤 Finansal Danışman <span class="ai-pill">AI Yapay Zeka <span class="sw"></span></span></div>
-            <div class="m-input" style="border-style:solid">Gelir, gider, sabit plan ve varlık kayıtlarınıza göre finansal dengenizi değerlendirin; güçlü alanları ve öncelikli adımları net biçimde görün.</div>
-            <div class="m-btnrow">
-              <div class="m-btn soft">Bu Ay</div><div class="m-btn soft">3 Ay</div><div class="m-btn fill">6 Ay</div><div class="m-btn soft">1 Yıl</div>
-            </div>
-            <div class="m-btnrow"><div class="m-btn soft">✦ Rapor Çalıştır</div></div>
-          </div>
-          <div class="m-card">
-            <div class="m-title">⬇ Rapor Al — Temmuz 2026</div>
-            <div class="m-btnrow">
-              <div class="m-btn green">📊 Excel Raporu</div>
-              <div class="m-btn red">📄 PDF Raporu</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── GÜVENLİK ─── -->
-<section class="dark-band" id="guvenlik">
-  <span class="badge reveal">Güvenlik</span>
-  <h2 class="reveal">Verileriniz yalnızca <span class="accent" style="background:linear-gradient(120deg,#60a5fa,#93c5fd);-webkit-background-clip:text;background-clip:text">size ait</span></h2>
-  <p class="lede reveal">Finansal verileriniz cihazınızda ve bulutta uçtan uca şifrelenir. Biz dahil hiç kimse okuyamaz.</p>
+<!-- ═══ GÜVENLİK ═══ -->
+<section class="dark-band immersive-section" id="guvenlik">
+  <div class="immersive-stage">
+  <span class="badge reveal" data-en="Security">Güvenlik</span>
+  <h2 class="reveal" data-en='Your data belongs <span class="accent" style="background:linear-gradient(120deg,#60a5fa,#93c5fd);-webkit-background-clip:text;background-clip:text">only to you</span>'>Verileriniz yalnızca <span class="accent" style="background:linear-gradient(120deg,#60a5fa,#93c5fd);-webkit-background-clip:text;background-clip:text">size ait</span></h2>
+  <p class="lede reveal" data-en="Your financial data is end-to-end encrypted on your device and in the cloud. No one — including us — can read it.">Finansal verileriniz cihazınızda ve bulutta uçtan uca şifrelenir. Biz dahil hiç kimse okuyamaz.</p>
   <div class="sec-grid stagger">
-    <div class="sec-card"><div class="ic">🔐</div><h3>Uçtan uca şifreleme</h3><p>AES-256-GCM ile cihazda ve bulutta şifreli saklama. Şifreleme anahtarları yalnızca sizin cihazınızda.</p></div>
-    <div class="sec-card"><div class="ic">🛡️</div><h3>PIN + Biyometrik kilit</h3><p>Uygulamayı PIN, parmak izi veya yüz tanıma ile kilitleyin; otomatik kilitleme süresini seçin.</p></div>
-    <div class="sec-card"><div class="ic">🙈</div><h3>Ekran gizliliği</h3><p>Uygulama arka plana alındığında içerik uygulama değiştiricide otomatik gizlenir; ekran görüntüsü engeli açılabilir.</p></div>
-    <div class="sec-card"><div class="ic">☁️</div><h3>Şifreli yedekleme</h3><p>Otomatik bulut yedekleri ve yerel yedek dosyaları da şifrelidir; verileriniz her koşulda korunur.</p></div>
-    <div class="sec-card"><div class="ic">🌍</div><h3>7 dil desteği</h3><p>Türkçe, İngilizce, Almanca, Fransızca, İspanyolca, Portekizce ve İtalyanca.</p></div>
-    <div class="sec-card"><div class="ic">🚫</div><h3>Takip yok</h3><p>Çapraz uygulama takibi yapılmaz; kişisel finans verileriniz reklam amacıyla kullanılmaz.</p></div>
+    <div class="sec-card"><div class="sec-head"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div><h3 data-en="End-to-end encryption">Uçtan uca şifreleme</h3></div><p data-en="AES-256-GCM encrypted storage on device and in the cloud. Encryption keys never leave your device.">AES-256-GCM ile cihazda ve bulutta şifreli saklama. Şifreleme anahtarları yalnızca sizin cihazınızda.</p></div>
+    <div class="sec-card"><div class="sec-head"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></div><h3 data-en="PIN + biometric lock">PIN + Biyometrik kilit</h3></div><p data-en="Lock the app with a PIN, fingerprint or face recognition; choose the auto-lock timeout.">Uygulamayı PIN, parmak izi veya yüz tanıma ile kilitleyin; otomatik kilitleme süresini seçin.</p></div>
+    <div class="sec-card"><div class="sec-head"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49"/><path d="M14.084 14.158a3 3 0 0 1-4.242-4.242"/><path d="M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143"/><path d="m2 2 20 20"/></svg></div><h3 data-en="Screen privacy">Ekran gizliliği</h3></div><p data-en="Content is hidden automatically in the app switcher when backgrounded; screenshot blocking can be enabled.">Uygulama arka plana alındığında içerik uygulama değiştiricide otomatik gizlenir; ekran görüntüsü engeli açılabilir.</p></div>
+    <div class="sec-card"><div class="sec-head"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg></div><h3 data-en="Encrypted backups">Şifreli yedekleme</h3></div><p data-en="Automatic cloud backups and local backup files are also encrypted; your data is protected in every scenario.">Otomatik bulut yedekleri ve yerel yedek dosyaları da şifrelidir; verileriniz her koşulda korunur.</p></div>
+    <div class="sec-card"><div class="sec-head"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div><h3 data-en="7 languages">7 dil desteği</h3></div><p data-en="Turkish, English, German, French, Spanish, Portuguese and Italian.">Türkçe, İngilizce, Almanca, Fransızca, İspanyolca, Portekizce ve İtalyanca.</p></div>
+    <div class="sec-card"><div class="sec-head"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m4.9 4.9 14.2 14.2"/></svg></div><h3 data-en="No tracking">Takip yok</h3></div><p data-en="No cross-app tracking; your personal finance data is never used for advertising.">Çapraz uygulama takibi yapılmaz; kişisel finans verileriniz reklam amacıyla kullanılmaz.</p></div>
+  </div>
   </div>
 </section>
 
-<!-- ─── CTA ─── -->
+<!-- ═══ CTA ═══ -->
 <section class="cta" id="indir">
-  <span class="badge reveal">Hazır mısınız?</span>
-  <h2 class="reveal">Bütçenizi bugün <span class="accent">kontrol altına alın</span></h2>
-  <p class="lede reveal" style="margin-left:auto;margin-right:auto">EL Finans'ı indirin; gelirinizi, giderinizi ve birikiminizi tek uygulamadan yönetin.</p>
-  <div class="store-buttons reveal">
-    <a class="store-btn" href="#" aria-label="App Store'dan indirin">
-      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8.98-.2 1.92-.86 3.08-.78 1.79.14 3.02.86 3.81 2.14-3.5 2.1-2.94 6.73.61 8.16-.63 1.29-1.45 2.57-2.58 2.65zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
-      <span class="t"><small>App Store</small><b>İndir</b></span>
-    </a>
-    <a class="store-btn" href="#" aria-label="Google Play'den edinin">
-      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.6 1.8c-.3.3-.5.8-.5 1.4v17.6c0 .6.2 1.1.5 1.4l.1.1 9.9-9.9v-.2L3.7 1.7l-.1.1zm13.4 8L14.5 12l2.5 2.2 3.2-1.8c.9-.5.9-1.3 0-1.8l-3.2-1.8v1zm-1 5.1L13.6 12l-9.4 9.4c.3.1.7.1 1.1-.1l10.7-6.4zM4.2 2.7 13.6 12l2.4-2.9L5.3 2.6c-.4-.2-.8-.2-1.1.1z"/></svg>
-      <span class="t"><small>Google Play</small><b>Edinin</b></span>
-    </a>
+  <div class="cta-card reveal-scale">
+    <span class="badge" data-en="Ready?">Hazır mısınız?</span>
+    <h2 data-en='Take control of your budget <span class="accent">today</span>'>Bütçenizi bugün <span class="accent">kontrol altına alın</span></h2>
+    <p class="lede" style="margin-left:auto;margin-right:auto" data-en="Download EL Finans and manage your income, expenses and savings from a single app.">EL Finans'ı indirin; gelirinizi, giderinizi ve birikiminizi tek uygulamadan yönetin.</p>
+    <div class="store-buttons">
+      <a class="store-btn" href="#" aria-label="App Store'dan indirin">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.03 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
+        <span class="t"><small>App Store</small><b data-en="Download">İndir</b></span>
+      </a>
+      <a class="store-btn" href="#" aria-label="Google Play'den indirin">
+        <svg viewBox="0 0 23.5 26" aria-hidden="true">
+          <defs>
+            <linearGradient id="gp2a" x1=".91" y1=".05" x2=".16" y2=".92"><stop offset="0" stop-color="#00A0FF"/><stop offset="1" stop-color="#00E3FF"/></linearGradient>
+            <linearGradient id="gp2b" x1="1" y1=".5" x2="0" y2=".5"><stop offset="0" stop-color="#FFE000"/><stop offset="1" stop-color="#FF9C00"/></linearGradient>
+            <linearGradient id="gp2c" x1=".86" y1=".12" x2=".14" y2=".88"><stop offset="0" stop-color="#FF3A44"/><stop offset="1" stop-color="#C31162"/></linearGradient>
+            <linearGradient id="gp2d" x1=".14" y1=".1" x2=".86" y2=".86"><stop offset="0" stop-color="#32A071"/><stop offset="1" stop-color="#00F076"/></linearGradient>
+          </defs>
+          <path fill="url(#gp2a)" d="M.7.5C.4.8.3 1.3.3 1.9v22.1c0 .6.2 1.1.5 1.4l.1.1 12.4-12.4v-.3L.7.5z"/>
+          <path fill="url(#gp2b)" d="M17.4 17.3l-4.1-4.1v-.3l4.1-4.1.1.1 4.9 2.8c1.4.8 1.4 2.1 0 2.9l-4.9 2.8-.1-.1z"/>
+          <path fill="url(#gp2c)" d="M17.5 17.2L13.3 13 .7 25.6c.5.5 1.2.5 2.1.1l14.7-8.5z"/>
+          <path fill="url(#gp2d)" d="M17.5 8.8L2.8.4C1.9-.1 1.2 0 .7.5L13.3 13l4.2-4.2z"/>
+        </svg>
+        <span class="t"><small>Google Play</small><b data-en="Download">İndir</b></span>
+      </a>
+    </div>
+    <p class="store-note" data-en="The app is coming soon to the App Store and Google Play. Links will appear here once it's published.">Uygulama yakında App Store ve Google Play'de. Yayınlandığında bağlantılar burada olacak.</p>
   </div>
-  <p class="store-note reveal">Uygulama yakında App Store ve Google Play'de. Yayınlandığında bağlantılar burada olacak.</p>
 </section>
 
 <footer class="footer">
-  <div class="footer-links">
-    <a href="privacy-policy.html">Gizlilik Politikası</a>
-    <a href="terms.html">Kullanım Şartları</a>
-    <a href="support.html">Destek</a>
-    <a href="hesap-silme.html">Hesap Silme</a>
-    <a href="mailto:el.finance.support@gmail.com">el.finance.support@gmail.com</a>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a class="brand" href="index.html" aria-label="EL Finans"><span class="brand-mark"><img src="images/logo-nav.png" alt="" width="42" height="42"></span><span class="brand-name">Finans</span></a>
+      <p data-en="End-to-end encrypted, AI-powered personal finance app. Your money, under your control.">Uçtan uca şifreli, yapay zeka destekli kişisel finans uygulaması. Paranız, sizin kontrolünüzde.</p>
+    </div>
+    <div class="footer-col">
+      <h4 data-en="Pages">Sayfalar</h4>
+      <a href="#ozellikler" data-en="Features">Özellikler</a>
+      <a href="#guvenlik" data-en="Security">Güvenlik</a>
+      <a href="support.html" data-en="Support">Destek</a>
+      <a href="#indir" data-en="Download">İndir</a>
+    </div>
+    <div class="footer-col">
+      <h4 data-en="Legal">Yasal</h4>
+      <a href="privacy-policy.html" data-en="Privacy Policy">Gizlilik Politikası</a>
+      <a href="terms.html" data-en="Terms of Use">Kullanım Şartları</a>
+      <a href="hesap-silme.html" data-en="Account Deletion">Hesap Silme</a>
+    </div>
   </div>
-  <div class="copy-line">© 2026 EL Finans. Tüm hakları saklıdır. Bu uygulamadaki analiz ve yorumlar yatırım tavsiyesi değildir.</div>
+  <div class="copy-line" data-en="© 2026 EL Finans. All rights reserved.">© 2026 EL Finans. Tüm hakları saklıdır.</div>
 </footer>
 
 <script src="script.js"></script>
