@@ -26,6 +26,7 @@
   // ── Dil değişimi (TR/EN) ──
   // data-en="..." taşıyan elemanların içeriği değiştirilir.
   var LANG_KEY = 'el-finans-language';
+  var renderAiDemo = null; // yapay zeka örnek çıktısı; aşağıda tanımlanır
   var langButtons = document.querySelectorAll('.lang-switch [data-set-lang]');
   var langRoot = document.querySelector('.lang-switch');
   var langToggle = document.querySelector('.lang-toggle');
@@ -52,6 +53,7 @@
     closeLangMenu();
     try { localStorage.setItem(LANG_KEY, lang); } catch (e) { /* gizli mod vb. */ }
     buildLegalToc(lang);
+    if (renderAiDemo) renderAiDemo();
   }
 
   Array.prototype.forEach.call(langButtons, function (btn) {
@@ -371,90 +373,23 @@
     activate(0);
     requestShowcaseUpdate();
   }
-  // ── Yapay zeka yazma demosu ──
+  // ── Yapay zeka örnek çıktısı: her zaman dolu görünür ──
   var aiTyped = document.getElementById('ai-typed');
   var aiResult = document.getElementById('ai-result');
   if (aiTyped && aiResult) {
     var aiTags = Array.prototype.slice.call(aiResult.querySelectorAll('.ai-tag'));
     var aiValues = Array.prototype.slice.call(aiResult.querySelectorAll('.ai-tag .v'));
-    var PHRASES = {
-      tr: [
-        { text: 'Markete 450 TL', v: ['₺450', 'Market', 'Bugün'] },
-        { text: 'Maaş yattı 85.000 TL', v: ['₺85.000', 'Maaş', 'Bugün'] },
-        { text: 'Dün akşam yemeği 1.250 TL', v: ['₺1.250', 'Restoran', 'Dün'] }
-      ],
-      en: [
-        { text: '450 TL groceries', v: ['₺450', 'Groceries', 'Today'] },
-        { text: 'Salary received 85,000 TL', v: ['₺85,000', 'Salary', 'Today'] },
-        { text: 'Dinner last night 1,250 TL', v: ['₺1,250', 'Dining', 'Yesterday'] }
-      ]
+    var AI_SAMPLE = {
+      tr: { text: 'Markete 450 TL', v: ['₺450', 'Market', 'Bugün'] },
+      en: { text: '450 TL groceries', v: ['₺450', 'Groceries', 'Today'] }
     };
-    function setValues(vals) {
-      aiValues.forEach(function (el, i) { el.textContent = vals[i] || ''; });
-    }
-    function showTags(show, cb) {
-      aiTags.forEach(function (tag, i) {
-        setTimeout(function () { tag.classList.toggle('show', show); }, show ? i * 130 : 0);
-      });
-      if (cb) setTimeout(cb, show ? aiTags.length * 130 : 260);
-    }
-    if (reduceMotion) {
-      var staticPhrase = (PHRASES[docEl.dataset.activeLang] || PHRASES.tr)[0];
-      aiTyped.textContent = staticPhrase.text;
-      setValues(staticPhrase.v);
-      aiTags.forEach(function (t) { t.classList.add('show'); });
-    } else {
-      var phraseIdx = 0;
-      var demoStarted = false;
-      function typeLoop() {
-        var lang = docEl.dataset.activeLang === 'en' ? 'en' : 'tr';
-        var phrase = PHRASES[lang][phraseIdx % PHRASES[lang].length];
-        var chars = Array.from(phrase.text);
-        var ci = 0;
-        aiTyped.textContent = '';
-        function typeChar() {
-          if (ci < chars.length) {
-            aiTyped.textContent += chars[ci++];
-            setTimeout(typeChar, 52);
-          } else {
-            setTimeout(function () {
-              setValues(phrase.v);
-              showTags(true, function () {
-                setTimeout(function () {
-                  showTags(false, function () {
-                    (function erase() {
-                      var t = aiTyped.textContent;
-                      if (t.length) {
-                        aiTyped.textContent = t.slice(0, -1);
-                        setTimeout(erase, 24);
-                      } else {
-                        phraseIdx++;
-                        setTimeout(typeLoop, 420);
-                      }
-                    })();
-                  });
-                }, 2300);
-              });
-            }, 380);
-          }
-        }
-        typeChar();
-      }
-      if ('IntersectionObserver' in window) {
-        var aio = new IntersectionObserver(function (entries) {
-          entries.forEach(function (entry) {
-            if (entry.isIntersecting && !demoStarted) {
-              demoStarted = true;
-              setTimeout(typeLoop, 400);
-              aio.disconnect();
-            }
-          });
-        }, { threshold: 0.4 });
-        aio.observe(aiTyped.closest('.ai-demo'));
-      } else {
-        typeLoop();
-      }
-    }
+    renderAiDemo = function () {
+      var sample = AI_SAMPLE[docEl.dataset.activeLang === 'en' ? 'en' : 'tr'];
+      aiTyped.textContent = sample.text;
+      aiValues.forEach(function (el, i) { el.textContent = sample.v[i] || ''; });
+      aiTags.forEach(function (tag) { tag.classList.add('show'); });
+    };
+    renderAiDemo();
   }
 
   // ── Galeri şeridi: geniş ekranlarda boşluk kalmayacak kadar çoğalt ──
