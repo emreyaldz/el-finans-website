@@ -530,10 +530,37 @@ h2 { font-size: clamp(30px, 4.5vw, 52px); font-weight: 700; }
   }
   .step h3 { font-size: 17px; }
   .step p { font-size: 14px; line-height: 1.55; margin-top: 5px; }
-  .step .step-phone { display: block; width: 100%; margin-top: 16px; }
+  .step .step-phone {
+    position: relative;
+    display: block;
+    width: min(248px, 72vw);
+    margin: 18px auto 0;
+    padding: 5px;
+    overflow: hidden;
+    border-radius: 30px;
+    background: #0b0f1a;
+    box-shadow: 0 12px 26px rgba(15, 31, 75, .10);
+  }
+  .step .step-phone::after {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    top: 10px;
+    left: 50%;
+    width: 54px;
+    height: 16px;
+    transform: translateX(-50%);
+    border-radius: 999px;
+    background: #05070b;
+    box-shadow: inset 0 -1px 0 rgba(255, 255, 255, .08);
+    pointer-events: none;
+  }
   .step .step-phone img {
-    display: block; width: min(240px, 70vw); height: auto; margin: 0 auto;
-    border-radius: 24px; box-shadow: 0 12px 26px rgba(15, 31, 75, .11);
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    border-radius: 25px;
   }
 }
 /* ═══ YAPAY ZEKA DEMOSU ═══ */
@@ -573,7 +600,7 @@ h2 { font-size: clamp(30px, 4.5vw, 52px); font-weight: 700; }
   align-items: center;
   color: #fff;
   border: 1px solid rgba(147, 197, 253, .16);
-  box-shadow: 0 -18px 56px rgba(30, 58, 138, .10), 0 24px 60px rgba(15, 31, 75, .12);
+  box-shadow: 0 12px 30px rgba(15, 31, 75, .08);
 }
 @media (max-width: 900px) {
   .immersive-section { min-height: 0; }
@@ -662,6 +689,7 @@ h2 { font-size: clamp(30px, 4.5vw, 52px); font-weight: 700; }
     gap: 28px;
     padding: 32px 20px 24px;
     border-radius: 28px;
+    box-shadow: 0 10px 24px rgba(15, 31, 75, .07);
   }
   .ai-panel h2 { font-size: clamp(30px, 9vw, 38px); }
   .ai-panel .lede { font-size: 15px; line-height: 1.55; }
