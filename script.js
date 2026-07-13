@@ -140,7 +140,7 @@
       var subject = (isEnglish ? 'EL Finans Support' : 'EL Finans Destek') + (name ? ' - ' + name : '');
       var body = message + '\n\n' + (isEnglish ? 'Name: ' : 'Ad Soyad: ') + name
         + '\n' + (isEnglish ? 'Email: ' : 'E-posta: ') + email;
-      window.location.href = 'mailto:el.finance.support@gmail.com'
+      window.location.href = 'mailto:support@elfinans.com'
         + '?subject=' + encodeURIComponent(subject)
         + '&body=' + encodeURIComponent(body);
     });
