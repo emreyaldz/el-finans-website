@@ -40,7 +40,7 @@
     });
     drawer.innerHTML =
       '<div class="drawer-head">' +
-        '<a class="brand" href="index.html" aria-label="EL Finans"><span class="brand-mark"><img src="images/logo-nav.png" alt="" width="42" height="42"></span><span class="brand-name">Finans</span></a>' +
+        '<a class="brand" href="/" aria-label="EL Finans"><span class="brand-mark"><img src="images/logo-nav.png" alt="" width="42" height="42"></span><span class="brand-name">Finans</span></a>' +
         '<button type="button" class="drawer-close" aria-label="Menüyü kapat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>' +
       '</div>' +
       '<nav class="drawer-links">' + drawerLinksHtml + '</nav>' +
