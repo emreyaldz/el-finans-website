@@ -1078,7 +1078,7 @@ body.modal-open { overflow: hidden; }
 .legal-block h2 { margin-top: 0; }
 .legal-block p, .legal-block li { line-height: 1.7; }
 .legal-block + .legal-block { border-top: 1px solid var(--border); padding-top: 22px; }
-.legal-block .step-list { max-width: 520px; }
+.legal-block .step-list { max-width: 100%; }
 .legal-block .callout { max-width: 60ch; }
 .page-main h1 { font-size: clamp(28px, 4vw, 38px); margin-bottom: 6px; }
 .page-main h2 {
@@ -1105,9 +1105,9 @@ body.modal-open { overflow: hidden; }
 .step-list { list-style: none; counter-reset: step; display: grid; gap: 12px; padding: 0 !important; margin-top: 14px !important; }
 .step-list li {
   counter-increment: step;
-  display: flex; align-items: center; gap: 15px;
+  display: grid; grid-template-columns: 42px minmax(0, 1fr); align-items: center; gap: 18px;
   background: #f8faff; border: 1px solid var(--border); border-radius: 16px;
-  padding: 15px 18px; margin: 0;
+  padding: 16px 20px; margin: 0;
   transition: transform .25s var(--ease), box-shadow .25s var(--ease), border-color .25s;
 }
 .step-list li:hover {
@@ -1117,13 +1117,21 @@ body.modal-open { overflow: hidden; }
 }
 .step-list li::before {
   content: counter(step);
-  width: 36px; height: 36px; border-radius: 11px; flex-shrink: 0;
+  width: 42px; height: 42px; border-radius: 13px;
   background: linear-gradient(135deg, #2563eb, #3b82f6);
   color: #fff; font-weight: 700; font-size: 15px;
   display: grid; place-items: center;
   box-shadow: 0 6px 14px rgba(37, 99, 235, .3);
 }
 
+.step-copy { display: grid; gap: 3px; min-width: 0; }
+.step-copy strong { color: var(--head); font-size: 15px; line-height: 1.35; }
+.step-copy > span { color: var(--muted); font-size: 13.5px; line-height: 1.5; }
+@media (max-width: 520px) {
+  .step-list { gap: 10px; }
+  .step-list li { grid-template-columns: 38px minmax(0, 1fr); gap: 13px; padding: 14px 15px; }
+  .step-list li::before { width: 38px; height: 38px; border-radius: 11px; }
+}
 /* Vurgulu bilgi kutusu */
 .callout {
   display: flex; gap: 13px; align-items: flex-start;
