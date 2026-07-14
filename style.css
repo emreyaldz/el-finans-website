@@ -293,7 +293,7 @@ h2 { font-size: clamp(30px, 4.5vw, 52px); font-weight: 700; }
   gap: clamp(32px, 5vw, 72px);
   align-items: center;
 }
-.hero-copy h1 { line-height: 1.18; }
+.hero-copy h1 { line-height: 1.08; }
 @media (max-width: 900px) {
   .hero-inner { grid-template-columns: 1fr; text-align: center; }
   .hero .lede { margin-left: auto; margin-right: auto; }
