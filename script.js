@@ -562,12 +562,32 @@
     var modalImg = shotModal.querySelector('.shot-modal-frame img');
     var modalClose = shotModal.querySelector('.shot-modal-close');
     var lastShotButton = null;
+    var modalLoadToken = 0;
+    var fullShotCache = Object.create(null);
+
+    function getFullShot(src) {
+      if (!src) return null;
+      if (!fullShotCache[src]) {
+        var image = new Image();
+        image.decoding = 'async';
+        image.src = src;
+        fullShotCache[src] = image;
+      }
+      return fullShotCache[src];
+    }
+
+    function setModalImageSize() {
+      modalImg.style.maxWidth = 'min(92vw, ' + modalImg.naturalWidth + 'px)';
+      modalImg.style.maxHeight = 'min(92svh, ' + modalImg.naturalHeight + 'px)';
+    }
 
     function closeShotModal() {
+      modalLoadToken++;
       shotModal.classList.remove('open');
       shotModal.setAttribute('aria-hidden', 'true');
       document.body.classList.remove('modal-open');
       if (modalImg) {
+        modalImg.onload = null;
         modalImg.removeAttribute('src');
         modalImg.alt = '';
       }
@@ -577,23 +597,41 @@
     function openShotModal(btn) {
       if (!modalImg) return;
       lastShotButton = btn;
+      var token = ++modalLoadToken;
       var thumb = btn.querySelector('img');
-      modalImg.onload = function () {
-        modalImg.style.maxWidth = 'min(92vw, ' + modalImg.naturalWidth + 'px)';
-        modalImg.style.maxHeight = 'min(92svh, ' + modalImg.naturalHeight + 'px)';
-      };
-      modalImg.src = btn.dataset.full;
+      var previewSrc = thumb ? (thumb.currentSrc || thumb.src) : '';
+      var fullSrc = btn.dataset.full;
+
       modalImg.alt = thumb ? thumb.alt : '';
+      modalImg.onload = setModalImageSize;
+      modalImg.src = previewSrc || fullSrc;
       shotModal.classList.add('open');
       shotModal.setAttribute('aria-hidden', 'false');
       document.body.classList.add('modal-open');
       if (modalClose) modalClose.focus();
+
+      var fullImage = getFullShot(fullSrc);
+      if (!fullImage) return;
+      function showFullImage() {
+        if (token !== modalLoadToken || !shotModal.classList.contains('open')) return;
+        modalImg.onload = setModalImageSize;
+        modalImg.src = fullSrc;
+      }
+      if (fullImage.complete && fullImage.naturalWidth) {
+        if (typeof fullImage.decode === 'function') fullImage.decode().then(showFullImage, showFullImage);
+        else showFullImage();
+      } else {
+        fullImage.addEventListener('load', showFullImage, { once: true });
+      }
     }
 
     Array.prototype.forEach.call(shotButtons, function (btn) {
+      function preloadFullShot() { getFullShot(btn.dataset.full); }
+      btn.addEventListener('pointerenter', preloadFullShot, { passive: true });
+      btn.addEventListener('pointerdown', preloadFullShot, { passive: true });
+      btn.addEventListener('focus', preloadFullShot);
       btn.addEventListener('click', function () { openShotModal(btn); });
-    });
-    if (modalClose) modalClose.addEventListener('click', closeShotModal);
+    });    if (modalClose) modalClose.addEventListener('click', closeShotModal);
     shotModal.addEventListener('click', function (e) {
       if (e.target === shotModal) closeShotModal();
     });
