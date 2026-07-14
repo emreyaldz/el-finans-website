@@ -936,6 +936,18 @@ body.modal-open { overflow: hidden; }
 .cta-card::before { width: 300px; height: 300px; top: -140px; left: -100px; background: rgba(147, 197, 253, .5); }
 .cta-card::after { width: 260px; height: 260px; bottom: -120px; right: -80px; background: rgba(191, 219, 254, .6); }
 .cta-card > * { position: relative; z-index: 1; }
+@media (max-width: 760px) {
+  .cta-card {
+    isolation: isolate;
+    -webkit-clip-path: inset(0 round 36px);
+    clip-path: inset(0 round 36px);
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+  }
+  .cta-card::before,
+  .cta-card::after { filter: none; }
+  .cta-card::before { background: radial-gradient(circle, rgba(147, 197, 253, .5), rgba(147, 197, 253, 0) 70%); }
+  .cta-card::after { background: radial-gradient(circle, rgba(191, 219, 254, .6), rgba(191, 219, 254, 0) 70%); }
+}
 
 .store-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 36px; }
 .hero .store-buttons { margin-top: 18px; }
