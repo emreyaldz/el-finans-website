@@ -293,6 +293,7 @@ h2 { font-size: clamp(30px, 4.5vw, 52px); font-weight: 700; }
   gap: clamp(32px, 5vw, 72px);
   align-items: center;
 }
+.hero-copy h1 { line-height: 1.18; }
 @media (max-width: 900px) {
   .hero-inner { grid-template-columns: 1fr; text-align: center; }
   .hero .lede { margin-left: auto; margin-right: auto; }
@@ -309,6 +310,7 @@ h2 { font-size: clamp(30px, 4.5vw, 52px); font-weight: 700; }
 /* Bölünmüş kelimeler transform ile katman oluşturunca üstteki .accent'in
    background-clip:text'i çalışmaz; gradyan her kelimeye ayrıca uygulanır. */
 .accent .hw {
+  padding-bottom: .08em;
   background: linear-gradient(120deg, #2563eb, #60a5fa, #2563eb);
   background-size: 200% auto;
   -webkit-background-clip: text; background-clip: text; color: transparent;
@@ -317,11 +319,32 @@ h2 { font-size: clamp(30px, 4.5vw, 52px); font-weight: 700; }
     accentShift 7s ease-in-out infinite alternate;
 }
 
+.hero-slogan {
+  display: inline-flex; align-items: center; gap: 9px;
+  width: fit-content; margin-top: 20px;
+  padding: 10px 16px;
+  color: #1d4ed8; font-size: clamp(15px, 1.6vw, 18px);
+  font-weight: 700; letter-spacing: .01em;
+  background: linear-gradient(135deg, rgba(255, 255, 255, .92), rgba(219, 234, 254, .78));
+  border: 1px solid rgba(59, 130, 246, .22);
+  border-radius: 999px;
+  box-shadow: 0 10px 28px rgba(37, 99, 235, .13), inset 0 1px 0 rgba(255, 255, 255, .85);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  opacity: 0; animation: fadeUp .8s var(--ease) .7s forwards;
+}
+.hero-slogan::before {
+  content: "✦"; color: #3b82f6; font-size: .9em;
+  filter: drop-shadow(0 0 7px rgba(59, 130, 246, .45));
+}
 .hero-copy .lede { opacity: 0; animation: fadeUp .8s var(--ease) .55s forwards; }
 .hero-copy .badge { opacity: 0; animation: fadeUp .7s var(--ease) 0s forwards; }
-.hero-copy .store-buttons { opacity: 0; animation: fadeUp .8s var(--ease) .75s forwards; }
-.hero-copy .trust-chips { opacity: 0; animation: fadeUp .8s var(--ease) .95s forwards; }
+.hero-copy .store-buttons { opacity: 0; animation: fadeUp .8s var(--ease) .85s forwards; }
+.hero-copy .trust-chips { opacity: 0; animation: fadeUp .8s var(--ease) 1s forwards; }
 @keyframes fadeUp { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
+
+@media (max-width: 900px) {
+  .hero-slogan { margin-left: auto; margin-right: auto; }
+}
 
 .trust-chips {
   list-style: none; display: flex; flex-wrap: wrap; gap: 10px;
@@ -813,7 +836,7 @@ body.modal-open { overflow: hidden; }
 .dark-band h2 { color: #fff; }
 .dark-band .lede { color: #b6c4e4; margin-left: auto; margin-right: auto; }
 .sec-grid {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(min(230px, 100%), 1fr));
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px; max-width: 1020px; margin: 48px auto 0;
 }
 
@@ -915,6 +938,7 @@ body.modal-open { overflow: hidden; }
 .cta-card > * { position: relative; z-index: 1; }
 
 .store-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 36px; }
+.hero .store-buttons { margin-top: 18px; }
 @media (min-width: 901px) { .hero .store-buttons { justify-content: flex-start; } }
 .store-btn {
   display: inline-flex; align-items: center; gap: 12px;
@@ -1396,7 +1420,7 @@ body.privacy-reader-open { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal, .reveal-scale, .stagger > * { opacity: 1 !important; transform: none !important; filter: none !important; transition: none !important; }
-  .hw, .hero-copy .badge, .hero-copy .lede, .hero-copy .store-buttons, .hero-copy .trust-chips, .hero-visual {
+  .hw, .hero-copy .badge, .hero-slogan, .hero-copy .lede, .hero-copy .store-buttons, .hero-copy .trust-chips, .hero-visual {
     transform: none !important; animation: none !important;
   }
   .phone.float, .orb, .accent, .badge::before, .float-chip, .hero-visual::before, .ai-caret { animation: none !important; }
