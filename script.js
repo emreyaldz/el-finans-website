@@ -4,6 +4,35 @@
 
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var docEl = document.documentElement;
+  var previewHost = window.location.hostname;
+  var usePhysicalHtmlLinks = window.location.protocol === 'file:'
+    || previewHost === 'localhost'
+    || previewHost === '127.0.0.1'
+    || previewHost === '[::1]';
+
+  // Production URLs stay extensionless; local static previews resolve to physical .html files.
+  function localizeStaticRoutes(root) {
+    if (!usePhysicalHtmlLinks) return;
+    var routeFiles = {
+      '/': 'index.html',
+      '/support': 'support.html',
+      '/privacy-policy': 'privacy-policy.html',
+      '/terms': 'terms.html',
+      '/account-deletion': 'account-deletion.html'
+    };
+    Array.prototype.forEach.call((root || document).querySelectorAll('a[href]'), function (link) {
+      var href = link.getAttribute('href');
+      var match = href && href.match(/^(\/(?:support|privacy-policy|terms|account-deletion)?)([?#].*)?$/);
+      if (!match || !routeFiles[match[1]]) return;
+      link.setAttribute('href', routeFiles[match[1]] + (match[2] || ''));
+    });
+  }
+
+  if (!usePhysicalHtmlLinks && /^https?:$/.test(window.location.protocol) && /\.html$/.test(window.location.pathname)) {
+    var cleanPath = window.location.pathname.replace(/\/index\.html$/, '/').replace(/\.html$/, '');
+    window.history.replaceState(null, '', cleanPath + window.location.search + window.location.hash);
+  }
+  localizeStaticRoutes(document);
   if (new URLSearchParams(window.location.search).get('embed') === '1') {
     docEl.classList.add('embed-policy');
   }
@@ -40,7 +69,7 @@
     });
     drawer.innerHTML =
       '<div class="drawer-head">' +
-        '<a class="brand" href="index.html" aria-label="EL Finans"><span class="brand-mark"><img src="images/logo-nav.png" alt="" width="42" height="42"></span><span class="brand-name">Finans</span></a>' +
+        '<a class="brand" href="' + (usePhysicalHtmlLinks ? 'index.html' : '/') + '" aria-label="EL Finans"><span class="brand-mark"><img src="images/logo-nav.png" alt="" width="42" height="42"></span><span class="brand-name">Finans</span></a>' +
         '<button type="button" class="drawer-close" aria-label="Menüyü kapat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>' +
       '</div>' +
       '<nav class="drawer-links">' + drawerLinksHtml + '</nav>' +
