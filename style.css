@@ -476,7 +476,10 @@ h2 { font-size: clamp(30px, 4.5vw, 52px); font-weight: 700; }
   gap: clamp(14px, 2.5vw, 32px); align-items: center;
 }
 @media (min-width: 901px) {
-  .showcase-wrap { align-self: start; }
+  .showcase-stage {
+    grid-template-rows: auto auto;
+    align-content: center;
+  }
 }
 .steps { width: min(100%, 580px); justify-self: end; display: grid; gap: clamp(5px, .9vh, 9px); min-width: 0; }
 .step {
