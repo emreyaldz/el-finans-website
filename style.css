@@ -968,6 +968,14 @@ body.modal-open { overflow: hidden; }
 }
 .store-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(15, 31, 75, 0.35); }
 .store-btn:active { transform: translateY(0) scale(.97); }
+.store-btn-disabled {
+  opacity: .55;
+  cursor: not-allowed;
+  box-shadow: none;
+  will-change: auto;
+}
+.store-btn-disabled:hover,
+.store-btn-disabled:active { transform: none; box-shadow: none; }
 .store-btn svg { width: 26px; height: 26px; flex-shrink: 0; }
 .store-btn .t { text-align: left; line-height: 1.15; }
 .store-btn .t small { display: block; font-size: 10px; opacity: .75; font-weight: 600; }
