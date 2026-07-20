@@ -240,7 +240,7 @@ h2 { font-size: clamp(30px, 4.5vw, 52px); font-weight: 700; }
   position: relative;
   isolation: isolate;
   width: min(330px, 82vw);
-  padding: clamp(5px, .48vw, 6px);
+  padding: clamp(4px, .38vw, 5px);
   border: 1px solid rgba(86, 91, 99, .82);
   border-radius: 14.33% / 6.6%;
   background:
@@ -258,14 +258,14 @@ h2 { font-size: clamp(30px, 4.5vw, 52px); font-weight: 700; }
   content: "";
   position: absolute;
   z-index: 2;
-  width: 4px;
-  border: 1px solid rgba(82, 87, 95, .86);
+  width: 3px;
+  border: 1px solid rgba(82, 87, 95, .76);
   filter: drop-shadow(0 2px 2px rgba(15, 23, 42, .2));
   pointer-events: none;
 }
 .phone::before {
   top: 21%;
-  left: -5px;
+  left: -4px;
   height: 21%;
   border-width: 0;
   background:
@@ -276,7 +276,7 @@ h2 { font-size: clamp(30px, 4.5vw, 52px); font-weight: 700; }
 }
 .phone::after {
   top: 31%;
-  right: -5px;
+  right: -4px;
   height: 13.5%;
   border-radius: 0 4px 4px 0;
   background: linear-gradient(90deg, #858b94, #e4e7e9 42%, #747a83);
