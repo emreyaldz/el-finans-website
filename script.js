@@ -420,9 +420,19 @@
     function activate(index) {
       var next = Math.max(0, Math.min(index, steps.length - 1));
       if (next === activeShot) return;
+      var previousShot = activeShot >= 0 ? shots[activeShot] : null;
       activeShot = next;
       steps.forEach(function (s) { s.classList.toggle('active', +s.dataset.shot === next); });
-      shots.forEach(function (img, i) { img.classList.toggle('active', i === next); });
+      shots.forEach(function (img) {
+        img.classList.remove('active', 'outgoing');
+      });
+      if (previousShot && previousShot !== shots[next]) previousShot.classList.add('outgoing');
+      shots[next].classList.add('active');
+      if (previousShot) {
+        window.setTimeout(function () {
+          if (!previousShot.classList.contains('active')) previousShot.classList.remove('outgoing');
+        }, 520);
+      }
     }
 
     function showcaseRange() {
