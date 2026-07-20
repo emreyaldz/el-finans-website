@@ -1,5 +1,10 @@
 # Repository Rules
 
+## Required design context
+
+- Before changing the landing-page layout, responsive rules, section spacing, phone frames, or screenshots, read and preserve `SITE_CONTEXT.md`.
+- Treat the viewport-fit and no-content-compression rules in `SITE_CONTEXT.md` as acceptance criteria, not optional guidance.
+
 ## Production URL policy
 
 - User-facing production page URLs must never expose the .html extension.
