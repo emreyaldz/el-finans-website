@@ -4,6 +4,31 @@
 
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var docEl = document.documentElement;
+
+  // Keep the 1920x930 desktop composition intact by scaling each scene as one unit.
+  // Mobile uses its own natural-flow layout below the existing 901px breakpoint.
+  var desktopScaleFrame = 0;
+  function syncDesktopLayoutScale() {
+    desktopScaleFrame = 0;
+    var scale = 1;
+    if (window.innerWidth >= 901) {
+      var navHeight = parseFloat(window.getComputedStyle(docEl).getPropertyValue('--nav-h')) || 64;
+      var widthScale = window.innerWidth / 1920;
+      var heightScale = (window.innerHeight - navHeight) / (930 - 64);
+      scale = Math.max(.48, Math.min(1, widthScale, heightScale));
+    }
+    var inverseScale = 1 / scale;
+    docEl.style.setProperty('--desktop-layout-scale', scale.toFixed(4));
+    docEl.style.setProperty('--desktop-layout-width', (inverseScale * 100).toFixed(4) + '%');
+    docEl.style.setProperty('--desktop-layout-offset', (-(inverseScale - 1) * 50).toFixed(4) + '%');
+  }
+  function queueDesktopLayoutScale() {
+    if (desktopScaleFrame) return;
+    desktopScaleFrame = window.requestAnimationFrame(syncDesktopLayoutScale);
+  }
+  syncDesktopLayoutScale();
+  window.addEventListener('resize', queueDesktopLayoutScale, { passive: true });
+
   var previewHost = window.location.hostname;
   var usePhysicalHtmlLinks = window.location.protocol === 'file:'
     || previewHost === 'localhost'
