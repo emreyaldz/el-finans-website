@@ -1269,7 +1269,18 @@ body.modal-open { overflow: hidden; }
   box-shadow: 0 24px 64px rgba(30, 58, 138, .1);
 }
 .form-card .contact-form { margin-top: 0; }
-.support-main .contact-alt { max-width: 600px; margin: 14px auto 0; text-align: center; }
+.support-main .contact-alt {
+  max-width: 680px; margin: 14px auto 0; text-align: center;
+  display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px 10px;
+}
+.support-main .support-mail-cta {
+  display: inline-flex; align-items: center; margin-top: 0;
+  padding: 7px 15px; font-size: 12.5px; line-height: 1.2;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, .28);
+}
+@media (max-width: 600px) {
+  .support-main .contact-alt { flex-direction: column; }
+}
 
 .faq-title {
   text-align: center; color: var(--head);
