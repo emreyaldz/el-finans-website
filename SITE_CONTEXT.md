@@ -17,7 +17,9 @@ This file records layout constraints that must survive future design changes. Re
 - Keep the established reference maximum widths, grid columns, card widths, and spacing inside the scaled desktop canvas.
 - Do not make the section containers artificially shorter. Preserve the full-screen/sticky experience where it is safe.
 - Do not add independent compact-height rules that shrink only headings, gaps, cards, panels, or phone mockups. Use the shared `--desktop-layout-scale` so the complete scene changes proportionally.
+- The Features and AI scenes use a shared 8% safe inset scale on desktop so their complete compositions keep visible space above and below without changing internal proportions.
 - The Gallery uses an inverse-width wrapper before the shared scale so its marquee remains full bleed while its cards and spacing retain reference proportions.
+- Gallery preview images are small, duplicated from the same 15 cached URLs, and must load eagerly so transformed marquee items never remain blank until hover. Do not promote every `.shot` to its own compositor layer; the moving track is the only layer that needs `will-change`.
 - Screenshots inside phone frames must use `object-fit: contain`, remain top-aligned, and be fully visible.
 - Larger displays should retain the spacious layout and the maximum phone size; compact-height rules must not affect 1080p/1440p layouts unnecessarily.
 
@@ -34,6 +36,7 @@ This file records layout constraints that must survive future design changes. Re
 - Compare the 14-inch result with the 27-inch reference: section headings, text blocks, phones, panels, grids, and gallery cards must preserve their relative positions and proportions.
 - Confirm the shared desktop scale is `1` at or above the reference canvas and decreases uniformly on smaller desktop viewports; below 901px it must reset to `1` for natural mobile flow.
 - Confirm there is no vertical clipping from `overflow: hidden` in `.hero`, `.showcase-stage`, or `.immersive-stage`.
+- Confirm the Security sticky stage and desktop CTA center their content in the viewport below the fixed navigation.
 - Confirm all public pages reference the same current `style.css` and `script.js` asset versions.
 - When CSS or JavaScript changes, bump its shared version query in every public HTML page.
 - Keep production links extensionless and preserve the local-preview route fallback described in `AGENTS.md`.

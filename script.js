@@ -19,6 +19,7 @@
     }
     var inverseScale = 1 / scale;
     docEl.style.setProperty('--desktop-layout-scale', scale.toFixed(4));
+    docEl.style.setProperty('--desktop-safe-layout-scale', (scale * .92).toFixed(4));
     docEl.style.setProperty('--desktop-layout-width', (inverseScale * 100).toFixed(4) + '%');
     docEl.style.setProperty('--desktop-layout-offset', (-(inverseScale - 1) * 50).toFixed(4) + '%');
   }

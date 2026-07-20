@@ -19,6 +19,7 @@
   --radius: 24px;
   --nav-h: 64px;
   --desktop-layout-scale: 1;
+  --desktop-safe-layout-scale: .92;
   --desktop-layout-width: 100%;
   --desktop-layout-offset: 0%;
   --ease: cubic-bezier(.22,.61,.36,1);
@@ -26,11 +27,14 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-.viewport-layout { width: 100%; }
+.viewport-layout {
+  --viewport-layout-scale: var(--desktop-layout-scale);
+  width: 100%;
+}
 @media (min-width: 901px) {
   .viewport-layout {
     flex: none;
-    transform: scale(var(--desktop-layout-scale));
+    transform: scale(var(--viewport-layout-scale));
     transform-origin: center center;
   }
 }
@@ -527,6 +531,16 @@ h2 { font-size: clamp(30px, 4.5vw, 52px); font-weight: 700; }
 .stat b span { display: inline; font: inherit; color: inherit; }
 .stat b .unit { color: var(--accent); }
 .stat > span { display: block; margin-top: 6px; font-size: 13px; font-weight: 600; color: var(--muted); }
+@media (min-width: 901px) {
+  .stats {
+    max-width: 918px;
+    padding: 48px 40px 24px;
+    gap: 15px;
+  }
+  .stat { border-radius: 19px; padding: 22px 17px; }
+  .stat b { font-size: 36px; }
+  .stat > span { margin-top: 5px; font-size: 12px; }
+}
 
 /* ═══ YAPIŞKAN VİTRİN (özellikler) ═══ */
 .showcase {
@@ -543,6 +557,7 @@ h2 { font-size: clamp(30px, 4.5vw, 52px); font-weight: 700; }
   overflow: hidden;
 }
 .showcase-layout {
+  --viewport-layout-scale: var(--desktop-safe-layout-scale);
   padding: clamp(12px, 2vh, 20px) 0;
   display: grid; grid-template-rows: auto minmax(0, 1fr);
 }
@@ -670,6 +685,7 @@ h2 { font-size: clamp(30px, 4.5vw, 52px); font-weight: 700; }
   width: min(330px, 82vw);
 }
 .ai-panel {
+  --viewport-layout-scale: var(--desktop-safe-layout-scale);
   position: relative; overflow: hidden;
   width: 100%; max-width: 1080px; margin: 0 auto;
   background: radial-gradient(900px 500px at 80% -10%, #1e3a8a 0%, #0f1f4b 55%, #0a1533 100%);
@@ -799,7 +815,6 @@ body.modal-open .marquee-track { animation-play-state: paused; }
   overflow: hidden;
   box-shadow: 0 18px 40px rgba(15, 31, 75, 0.2);
   transition: transform .3s var(--ease), box-shadow .3s;
-  transform: translateZ(0);
 }
 .shot:hover,
 .shot:focus-visible { transform: translateY(-8px) scale(1.03); box-shadow: 0 26px 52px rgba(15, 31, 75, 0.3); }
@@ -864,6 +879,13 @@ body.modal-open { overflow: hidden; }
   height: auto;
   min-height: calc(100svh - var(--nav-h));
   padding: clamp(72px, 8vw, 104px) clamp(16px, 5vw, 48px);
+}
+@media (min-width: 901px) {
+  .dark-band .immersive-stage {
+    height: calc(100svh - var(--nav-h));
+    min-height: 0;
+    padding: 32px 48px;
+  }
 }
 .security-layout { display: flex; flex-direction: column; justify-content: center; }
 .dark-band .badge { align-self: center; background: rgba(96, 165, 250, .16); color: #93c5fd; }
@@ -950,7 +972,21 @@ body.modal-open { overflow: hidden; }
 }
 
 /* ═══ CTA ═══ */
-.cta { text-align: center; padding: clamp(72px, 9vw, 110px) clamp(16px, 5vw, 48px) clamp(88px, 10vw, 130px); }
+.cta {
+  scroll-margin-top: var(--nav-h);
+  text-align: center;
+  padding: clamp(72px, 9vw, 110px) clamp(16px, 5vw, 48px) clamp(88px, 10vw, 130px);
+}
+@media (min-width: 901px) {
+  .cta {
+    min-height: calc(100svh - var(--nav-h));
+    padding: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .cta-card { width: 100%; }
+}
 .cta-card {
   position: relative; overflow: hidden;
   max-width: 880px; margin: 0 auto;
