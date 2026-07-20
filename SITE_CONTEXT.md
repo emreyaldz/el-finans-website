@@ -14,6 +14,7 @@ This file records layout constraints that must survive future design changes. Re
 ## Preserve content and section proportions
 
 - Do not hide, truncate, line-clamp, or remove headings, descriptions, feature cards, AI demo output, security cards, or gallery items to make a section fit.
+- Keep site animations enabled independently of the operating system's `prefers-reduced-motion` preference. Do not add reduced-motion rules that leave animated content or phone screenshots in an initial hidden, transparent, transformed, or partially rendered state.
 - Keep the established reference maximum widths, grid columns, card widths, and spacing inside the scaled desktop canvas.
 - Do not make the section containers artificially shorter. Preserve the full-screen/sticky experience where it is safe.
 - Do not add independent compact-height rules that shrink only headings, gaps, cards, panels, or phone mockups. Use the shared `--desktop-layout-scale` so the complete scene changes proportionally.
@@ -29,6 +30,7 @@ This file records layout constraints that must survive future design changes. Re
 - Keep the metallic grey outer frame, black inner bezel, Dynamic Island, left-side controls, and right-side power button consistent.
 - On desktop, phone size follows the same shared scene scale as its surrounding content. Do not scale the phone independently from the section composition.
 - The screenshot must never be cropped to make the device fit.
+- On desktop, the active showcase image must be fully loaded and match the `.screen` content box in both width and height throughout every scroll-driven transition.
 
 ## Regression checks
 
@@ -36,6 +38,7 @@ This file records layout constraints that must survive future design changes. Re
 - Compare the 14-inch result with the 27-inch reference: section headings, text blocks, phones, panels, grids, and gallery cards must preserve their relative positions and proportions.
 - Confirm the shared desktop scale is `1` at or above the reference canvas and decreases uniformly on smaller desktop viewports; below 901px it must reset to `1` for natural mobile flow.
 - Confirm there is no vertical clipping from `overflow: hidden` in `.hero`, `.showcase-stage`, or `.immersive-stage`.
+- Confirm hero entrance animations, reveal effects, showcase screen transitions, the AI typing demo, gallery marquee, phone parallax, and pointer tilt remain active even when the host operating system requests reduced motion.
 - Confirm the Security sticky stage and desktop CTA center their content in the viewport below the fixed navigation. The CTA card must use an outer `.viewport-layout` wrapper so it follows the shared desktop scale without overriding its reveal animation.
 - Confirm all public pages reference the same current `style.css` and `script.js` asset versions.
 - When CSS or JavaScript changes, bump its shared version query in every public HTML page.

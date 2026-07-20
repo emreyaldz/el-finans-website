@@ -1523,19 +1523,3 @@ body.privacy-reader-open { overflow: hidden; }
   .privacy-reader-foot { align-items: stretch; flex-direction: column; gap: 8px; }
   .privacy-accept { width: 100%; }
 }
-/* ═══ Hareket azaltma: tüm dekoratif animasyonlar kapanır ═══ */
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  .reveal, .reveal-scale, .stagger > * { opacity: 1 !important; transform: none !important; filter: none !important; transition: none !important; }
-  .hw, .hero-copy .badge, .hero-slogan, .hero-copy .lede, .hero-copy .store-buttons, .hero-copy .trust-chips, .hero-visual {
-    transform: none !important; animation: none !important;
-  }
-  .phone.float, .orb, .accent, .badge::before, .float-chip, .hero-visual::before, .ai-caret { animation: none !important; }
-  .marquee { overflow-x: auto; -webkit-mask-image: none; mask-image: none; }
-  .marquee-track { animation: none; }
-  .marquee-track[aria-hidden="true"] { display: none; }
-  .showcase-sticky .screen img { transition: none; }
-  .faq-a, .faq-q .chev, .step-list li { transition: none; }
-  .legal-content { opacity: 1; transform: none; animation: none; }
-  .lang-switch.open .lang-menu { animation: none; }
-}

@@ -2,7 +2,7 @@
 (function () {
   'use strict';
 
-  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var reduceMotion = false; // Animasyonlar işletim sistemi tercihinden bağımsız olarak açık kalır.
   var docEl = document.documentElement;
 
   // Keep the 1920x930 desktop composition intact by scaling each scene as one unit.
