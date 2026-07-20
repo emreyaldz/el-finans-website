@@ -36,7 +36,7 @@ This file records layout constraints that must survive future design changes. Re
 - Compare the 14-inch result with the 27-inch reference: section headings, text blocks, phones, panels, grids, and gallery cards must preserve their relative positions and proportions.
 - Confirm the shared desktop scale is `1` at or above the reference canvas and decreases uniformly on smaller desktop viewports; below 901px it must reset to `1` for natural mobile flow.
 - Confirm there is no vertical clipping from `overflow: hidden` in `.hero`, `.showcase-stage`, or `.immersive-stage`.
-- Confirm the Security sticky stage and desktop CTA center their content in the viewport below the fixed navigation.
+- Confirm the Security sticky stage and desktop CTA center their content in the viewport below the fixed navigation. The CTA card must use an outer `.viewport-layout` wrapper so it follows the shared desktop scale without overriding its reveal animation.
 - Confirm all public pages reference the same current `style.css` and `script.js` asset versions.
 - When CSS or JavaScript changes, bump its shared version query in every public HTML page.
 - Keep production links extensionless and preserve the local-preview route fallback described in `AGENTS.md`.
