@@ -34,6 +34,13 @@ This file records layout constraints that must survive future design changes. Re
 - On desktop, the active showcase image must be fully loaded and match the `.screen` content box in both width and height throughout every scroll-driven transition.
 - Feature screenshots use an overlapping crossfade: the outgoing screenshot stays fully opaque while the incoming screenshot fades above it. Never expose the black screen background or add a scale transition that creates a dark flash, shadow, or ghosting between screenshots.
 
+## Support privacy-link behavior
+
+- The Privacy Policy link beside the support form consent checkbox must open the embedded policy reader without changing pages.
+- The Privacy Policy links inside the FAQ must navigate to the standalone `/privacy-policy` page and must not open the embedded reader.
+- The embedded reader's “Okudum ve anladım / I have read and understood” button must remain immediately available; do not make it depend on iframe scroll position, cross-window messages, timers, or end-of-document detection.
+- Confirming the embedded policy must check the consent box belonging to the active language's support form and then close the reader.
+
 ## Regression checks
 
 - After layout changes, verify the representative desktop sizes above with special attention to 1366x768 and 2560x1440.

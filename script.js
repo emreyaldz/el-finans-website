@@ -62,22 +62,6 @@
   if (new URLSearchParams(window.location.search).get('embed') === '1') {
     docEl.classList.add('embed-policy');
   }
-
-  // Gömülü gizlilik metninin sonuna ulaşıldığını üst pencereye bildirir.
-  if (docEl.classList.contains('embed-policy')) {
-    var privacyEndMarker = document.createElement('div');
-    privacyEndMarker.setAttribute('aria-hidden', 'true');
-    privacyEndMarker.style.cssText = 'height:1px;width:100%;pointer-events:none';
-    document.body.appendChild(privacyEndMarker);
-    if ('IntersectionObserver' in window) {
-      var privacyEndObserver = new IntersectionObserver(function (entries) {
-        if (entries[0] && entries[0].isIntersecting) {
-          window.parent.postMessage({ type: 'el-finans-privacy-read' }, window.location.origin);
-        }
-      }, { root: null, threshold: 1 });
-      privacyEndObserver.observe(privacyEndMarker);
-    }
-  }
   // ── Mobil menü: soldan açılır çekmece ──
   // Nav linklerinden kopyalanarak JS ile kurulur; tüm sayfalarda ortaktır.
   var navBurger = document.querySelector('.nav-burger');
@@ -208,46 +192,13 @@
     var privacyClose = privacyReader.querySelector('.privacy-reader-close');
     var privacyNote = privacyReader.querySelector('.privacy-scroll-note');
     var pendingConsent = null;
-    var frameScrollTarget = null;
-    var privacyScrollTimer = null;
-
-    function setPrivacyReady(ready) {
-      privacyAccept.disabled = !ready;
-      if (ready && privacyNote) {
-        privacyNote.textContent = docEl.lang === 'en' ? 'You reached the end of the policy.' : 'Politikanın sonuna ulaştınız.';
-      }
-    }
-
-    function checkPrivacyScroll() {
-      try {
-        var frameWindow = privacyFrame.contentWindow;
-        var frameDocument = privacyFrame.contentDocument;
-        if (!frameWindow || !frameDocument) return;
-        var root = frameDocument.scrollingElement || frameDocument.documentElement;
-        var body = frameDocument.body;
-        var scrollTop = Math.max(frameWindow.scrollY || 0, root.scrollTop || 0, body ? body.scrollTop || 0 : 0);
-        var viewportHeight = Math.max(frameWindow.innerHeight || 0, root.clientHeight || 0, privacyFrame.clientHeight || 0);
-        var scrollHeight = Math.max(root.scrollHeight || 0, body ? body.scrollHeight || 0 : 0);
-        var maxScroll = Math.max(0, scrollHeight - viewportHeight);
-        setPrivacyReady(maxScroll === 0 || scrollTop >= maxScroll - 120);
-      } catch (e) { setPrivacyReady(true); }
-    }
-
-    function bindPrivacyFrame() {
-      try {
-        frameScrollTarget = privacyFrame.contentWindow;
-        frameScrollTarget.addEventListener('scroll', checkPrivacyScroll, { passive: true });
-        checkPrivacyScroll();
-      } catch (e) { setPrivacyReady(true); }
-    }
-
     function openPrivacyReader(link) {
       var form = link.closest('form');
       if (!form) {
         form = document.querySelector('section[data-lang="' + docEl.lang + '"] form.contact-form');
       }
       pendingConsent = form && form.querySelector('input[name="privacy_consent"]');
-      setPrivacyReady(true);
+      privacyAccept.disabled = false;
       if (privacyNote) privacyNote.textContent = docEl.lang === 'en'
         ? 'Review the policy, then confirm.'
         : 'Politikayı inceleyip onaylayabilirsiniz.';
@@ -260,17 +211,12 @@
         var root = privacyFrame.contentDocument.scrollingElement || privacyFrame.contentDocument.documentElement;
         root.scrollTop = 0;
       } catch (e) { /* iframe henüz yüklenmemiş olabilir */ }
-      checkPrivacyScroll();
-      clearInterval(privacyScrollTimer);
-      privacyScrollTimer = setInterval(checkPrivacyScroll, 180);
     }
 
     function closePrivacyReader() {
       privacyReader.classList.remove('open');
       privacyReader.setAttribute('aria-hidden', 'true');
       document.body.classList.remove('privacy-reader-open');
-      clearInterval(privacyScrollTimer);
-      privacyScrollTimer = null;
     }
 
     Array.prototype.forEach.call(privacyLinks, function (link) {
@@ -279,13 +225,6 @@
         openPrivacyReader(link);
       });
     });
-    window.addEventListener('message', function (event) {
-      if (event.origin === window.location.origin && event.data && event.data.type === 'el-finans-privacy-read') {
-        setPrivacyReady(true);
-      }
-    });
-    privacyFrame.addEventListener('load', bindPrivacyFrame);
-    if (privacyFrame.contentDocument && privacyFrame.contentDocument.readyState === 'complete') bindPrivacyFrame();
     privacyClose.addEventListener('click', closePrivacyReader);
     privacyAccept.addEventListener('click', function () {
       if (privacyAccept.disabled) return;
