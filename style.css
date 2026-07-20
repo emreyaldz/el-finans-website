@@ -976,15 +976,15 @@ body.modal-open { overflow: hidden; }
 .cta {
   scroll-margin-top: var(--nav-h);
   text-align: center;
+}
+.cta .immersive-stage {
   padding: clamp(72px, 9vw, 110px) clamp(16px, 5vw, 48px) clamp(88px, 10vw, 130px);
 }
 @media (min-width: 901px) {
-  .cta {
-    min-height: calc(100svh - var(--nav-h));
+  .cta .immersive-stage {
+    height: calc(100svh - var(--nav-h));
+    min-height: 0;
     padding: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
   .cta-card { width: 100%; }
 }
