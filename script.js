@@ -1407,14 +1407,31 @@
       ask(input.value);
     });
 
+    // Sohbet aktifken dil değiştirilirse: geçmiş metinler donmuş kaldığından
+    // (hangi qa id'sine ait olduğu saklanmıyor) gerçek anlamda çevrilemez;
+    // bunun yerine mevcut ekran durumuna (currentScreen) göre panel yeni dilde
+    // sıfırdan çizilir — kullanıcı hangi kategori/soruda kalmışsa o ekranın
+    // karşılığı yeni dilde tekrar gösterilir.
+    function rerenderInCurrentLang() {
+      if (!started) return;
+      body.innerHTML = '';
+      transcript = [];
+      var screen = currentScreen;
+      addMessage(greeting[currentLang()], 'bot');
+      if (screen.screen === 'category' || screen.screen === 'entry' || screen.screen === 'fallback') {
+        renderChipsForScreen(screen);
+        currentScreen = screen;
+        persistHistory();
+      } else {
+        renderCategoryChips();
+      }
+    }
+
     refreshStrings();
     var previousRenderHook = window.__supportBotRefresh;
     window.__supportBotRefresh = function () {
       refreshStrings();
-      if (started) {
-        var lang = currentLang();
-        titleEl.textContent = lang === 'en' ? 'EL Finans Assistant' : 'EL Finans Asistanı';
-      }
+      rerenderInCurrentLang();
       if (previousRenderHook) previousRenderHook();
     };
 

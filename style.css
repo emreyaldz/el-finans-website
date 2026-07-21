@@ -267,6 +267,7 @@ h2 { font-size: clamp(30px, 4.5vw, 52px); font-weight: 700; }
     inset 0 -1px 1px rgba(30, 34, 40, .35);
   will-change: transform;
   transform: translateY(var(--py, 0px)) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transition: transform .15s ease-out;
 }
 .phone::before,
 .phone::after {
@@ -1404,7 +1405,7 @@ body.modal-open { overflow: hidden; }
   position: absolute;
   top: calc(100% + 12px);
   right: 0;
-  width: 170px;
+  width: 140px;
   padding: 7px;
   display: none;
   z-index: 131;
@@ -1426,7 +1427,7 @@ body.modal-open { overflow: hidden; }
   align-items: center;
   min-height: 40px;
   width: 100%;
-  padding: 9px 38px 9px 12px;
+  padding: 9px 30px 9px 10px;
   border: 0;
   border-radius: 8px;
   background: transparent;
