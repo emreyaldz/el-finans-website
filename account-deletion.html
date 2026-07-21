@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title data-en="EL Finans - Account Deletion">EL Finans - Hesap Silme</title>
-  <meta name="description" content="EL Finans hesabınızı ve verilerinizi kalıcı olarak silme adımları.">
+  <meta name="description" content="EL Finans hesabınızı ve hesaba bağlı verileri silme adımları ile yasal saklama istisnaları.">
   <link rel="icon" type="image/png" href="images/favicon-192.png">
   <link rel="apple-touch-icon" href="images/favicon-192.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -46,14 +46,14 @@
   </div>
   <span class="badge" data-en="Account Management">Hesap Yönetimi</span>
   <h1 data-en='Account &amp; Data <span class="accent">Deletion</span>'>Hesap ve Veri <span class="accent">Silme</span></h1>
-  <p class="lede" data-en="You can permanently delete your account and all linked data from within the app — no approval process required.">Hesabınızı ve bağlı tüm verileri uygulama içinden kalıcı olarak silebilirsiniz — onay süreci gerekmez.</p>
+  <p class="lede" data-en="You can request deletion of your account and account-scoped data from within the app; limited legal and shared-account retention exceptions apply.">Hesabınızı ve hesabınıza bağlı özel verileri uygulama içinden silebilirsiniz; sınırlı yasal saklama ve ortak hesap istisnaları aşağıda açıklanır.</p>
 </header>
 
 <main class="page-main">
   <article class="legal-content">
     <section data-lang="tr">
       <div class="legal-intro">
-        <p>EL Finans hesabınızı ve hesabınıza bağlı tüm verileri <strong>uygulama içinden</strong> kalıcı olarak silebilirsiniz. Silme işlemi için ek bir onay süreci veya bizimle iletişime geçmeniz gerekmez.</p>
+        <p>EL Finans hesabınızın ve hesabınıza bağlı özel verilerin silinmesini <strong>uygulama içinden</strong> talep edebilirsiniz. Ek bir destek onayı gerekmez; sınırlı yasal saklama ve ortak hesap istisnaları aşağıda açıklanır.</p>
       </div>
       <div class="legal-block">
         <h2>Uygulama içinden silme adımları</h2>
@@ -68,14 +68,14 @@
         <h2>Silinen veriler</h2>
         <ul>
         <li>Hesap bilgileriniz (Google/Apple ile giriş kimliği, e-posta ilişkilendirmesi)</li>
-        <li>Buluta senkronize edilmiş şifreli finansal verileriniz</li>
+        <li>Kişisel buluta senkronize edilmiş şifreli finansal verileriniz</li>
         <li>Bulut yedek dosyalarınız</li>
         <li>Abonelik/hak kayıtlarınız (satın alma geçmişinin yasal saklama yükümlülükleri hariç)</li>
-        <li>Şifreleme anahtarlarınız (cihazınızdaki güvenli depodan)</li>
+        <li>Bulut kurtarma zarfınız ve cihazınızdaki şifreleme anahtarları</li>
         </ul>
         <div class="callout">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
-        <p>Silme talebiniz alındığında hesabınız kapatılır ve sunucudaki verileriniz kalıcı silme sürecine alınır. Cihazınızdaki yerel veriler de uygulama tarafından temizlenir.</p>
+        <p>Silme talebiniz alındığında hesabınız kapatılır; kullanıcıya özel Supabase verileri ve özel Storage yedekleri kalıcı silme sürecine alınır, cihazdaki yerel veriler temizlenir. Satın alma ve güvenlik kayıtları yasal yükümlülük, mağaza doğrulaması veya sahteciliği önleme için gereken süre boyunca tutulabilir. Ortak hesaba eklediğiniz veriler, hesap sahibi ortak hesabı silene kadar diğer yetkili üyeler için kalabilir.</p>
         </div>
       </div>
       <div class="legal-block">
@@ -88,7 +88,7 @@
 
     <section data-lang="en">
       <div class="legal-intro">
-        <p>You can permanently delete your EL Finans account and all data linked to it <strong>from within the app</strong>. No additional approval process or contacting us is required.</p>
+        <p>You can request deletion of your EL Finans account and account-scoped private data <strong>from within the app</strong>. No additional support approval is required; limited legal-retention and shared-account exceptions are explained below.</p>
       </div>
       <div class="legal-block">
         <h2>Deletion steps in the app</h2>
@@ -103,14 +103,14 @@
         <h2>Data that is deleted</h2>
         <ul>
         <li>Your account information (Google/Apple sign-in identity, email association)</li>
-        <li>Your encrypted financial data synced to the cloud</li>
+        <li>Your encrypted financial data synced to your personal cloud</li>
         <li>Your cloud backup files</li>
         <li>Your subscription/entitlement records (except purchase history subject to legal retention obligations)</li>
-        <li>Your encryption keys (from your device's secure storage)</li>
+        <li>Your cloud recovery envelope and encryption keys from the device</li>
         </ul>
         <div class="callout">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
-        <p>Once your deletion request is received, your account is closed and your server-side data enters the permanent deletion process. Local data on your device is also cleared by the app.</p>
+        <p>Once your request is received, the account is closed; user-scoped Supabase data and private Storage backups enter permanent deletion, and local app data is cleared. Purchase and security records may remain for the period required by law, store verification, or fraud prevention. Data you added to a shared account may remain available to authorized members until the owner deletes that shared account.</p>
         </div>
       </div>
       <div class="legal-block">
@@ -127,7 +127,7 @@
   <div class="footer-grid">
     <div class="footer-brand">
       <a class="brand" href="/" aria-label="EL Finans"><span class="brand-mark"><img src="images/logo-nav.png" alt="" width="42" height="42"></span><span class="brand-name">Finans</span></a>
-      <p data-en="End-to-end encrypted, AI-powered personal finance app. Your money, under your control.">Uçtan uca şifreli, yapay zeka destekli kişisel finans uygulaması. Paranız, sizin kontrolünüzde.</p>
+      <p data-en="Encrypted personal data, secure shared accounts, and AI-powered finance management.">Şifreli kişisel veriler, güvenli ortak hesaplar ve yapay zekâ destekli finans yönetimi.</p>
     </div>
     <div class="footer-col">
       <h4 data-en="Pages">Sayfalar</h4>

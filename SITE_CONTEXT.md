@@ -41,6 +41,25 @@ This file records layout constraints that must survive future design changes. Re
 - The embedded reader's “Okudum ve anladım / I have read and understood” button must remain immediately available; do not make it depend on iframe scroll position, cross-window messages, timers, or end-of-document detection.
 - Confirming the embedded policy must check the consent box belonging to the active language's support form and then close the reader.
 
+## Legal content source and release workflow
+
+- The canonical Privacy Policy and Terms content lives in the app repository's `src/constants/legalDocuments.js`; the English counterparts live in `src/constants/legalTranslations.js`, while the app's other languages remain in their separate localization file.
+- After changing either legal document, run `npm run legal:sync-site` from the app repository. Do not manually let `privacy-policy.html` or `terms.html` diverge from the generated app content.
+- Keep the Turkish and English last-updated labels synchronized between both legal pages. The current shared legal date is July 21, 2026 / 21 Temmuz 2026.
+- Material legal changes must increment the app's legal-text version and require renewed in-app acceptance, as described by the Terms.
+- Before production release, follow the app repository's `docs/deploy-runbook.md` to verify the actual data-controller identity, production Gemini billing/data-use configuration, the AdMob UMP message, and the store privacy declarations.
+
+## Product, security, and privacy claim invariants
+
+- Do not describe every EL Finans data path as end-to-end encrypted. Personal device data, personal cloud sync, and personal backups use AES-256-GCM with plaintext keys kept off the server; shared-account synchronization is the explicit exception.
+- Shared-account transactions and related synchronization data are stored as unencrypted JSONB in Supabase so authorized members can collaborate. They are not public and must be described as protected by Row Level Security, membership, and owner/admin role checks.
+- A member leaving or deleting their personal account does not automatically delete shared-account data retained for the other authorized members. Only the shared-account owner can permanently delete the shared account.
+- Account deletion closes the account, removes user-scoped Supabase data and private Storage backups, clears local app data and device keys, and removes the cloud recovery envelope. Limited purchase/security records may remain for legal, store-verification, or fraud-prevention needs, and shared-account data may remain as described above.
+- AI features are for users aged 18 or older, run only after a user-initiated request and separate explicit consent, and route through an authenticated Supabase Edge Function to Google Gemini API. Production must use the billing-enabled Gemini data-processing configuration documented in the policy.
+- Free users may see banner or rewarded AdMob ads, but personal financial records are not used for ad targeting. Production diagnostics use Sentry only with the documented sensitive-field scrubbing.
+- Keep the security wording consistent across homepage metadata and security cards, Support FAQ, Account Deletion, Privacy Policy, Terms, and all shared footers. Prefer “encrypted personal data, secure shared accounts” over blanket end-to-end-encryption claims.
+- The shared footer description is currently “Şifreli kişisel veriler, güvenli ortak hesaplar ve yapay zekâ destekli finans yönetimi.” / “Encrypted personal data, secure shared accounts, and AI-powered finance management.” Keep it identical on every public page.
+
 ## Regression checks
 
 - After layout changes, verify the representative desktop sizes above with special attention to 1366x768 and 2560x1440.
@@ -52,3 +71,4 @@ This file records layout constraints that must survive future design changes. Re
 - Confirm all public pages reference the same current `style.css` and `script.js` asset versions.
 - When CSS or JavaScript changes, bump its shared version query in every public HTML page.
 - Keep production links extensionless and preserve the local-preview route fallback described in `AGENTS.md`.
+- After legal-content changes, confirm the Privacy Policy and Terms have matching TR/EN dates and that the homepage, Support, Account Deletion, and shared footer claims still reflect the personal-data/shared-account distinction.
