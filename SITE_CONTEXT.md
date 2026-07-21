@@ -21,7 +21,7 @@ This file records layout constraints that must survive future design changes. Re
 - The Features and AI scenes use a shared 8% safe inset scale on desktop so their complete compositions keep visible space above and below without changing internal proportions.
 - The Gallery uses an inverse-width wrapper before the shared scale so its marquee remains full bleed while its cards and spacing retain reference proportions.
 - Gallery preview images are small, duplicated from the same 15 cached URLs, and must load eagerly so transformed marquee items never remain blank until hover. Do not promote every `.shot` to its own compositor layer; the moving track is the only layer that needs `will-change`.
-- Keep the Gallery marquee at the current calm reference pace (`48s` per full track loop). It must remain continuously animated, pause while hovered or while the preview modal is open, and must not be accelerated without a deliberate visual review.
+- Keep the Gallery marquee at the current calm reference pace of `54 CSS pixels per second` (roughly `54s` for the original 15-card track). After adding any wide-screen clones, JavaScript must derive `--gallery-marquee-duration` from each track's final `scrollWidth` so a longer track never moves faster. It must remain continuously animated, pause while hovered or while the preview modal is open, and must not be accelerated without a deliberate visual review.
 - Screenshots inside phone frames must use `object-fit: contain`, remain top-aligned, and be fully visible.
 - Larger displays should retain the spacious layout and the maximum phone size; compact-height rules must not affect 1080p/1440p layouts unnecessarily.
 

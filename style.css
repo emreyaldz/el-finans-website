@@ -801,7 +801,7 @@ h2 { font-size: clamp(30px, 4.5vw, 52px); font-weight: 700; }
 .marquee-track {
   display: flex; gap: 22px; padding-right: 22px;
   flex-shrink: 0;
-  animation: galleryMarquee 48s linear infinite;
+  animation: galleryMarquee var(--gallery-marquee-duration, 54s) linear infinite;
   will-change: transform;
 }
 .marquee:hover .marquee-track { animation-play-state: paused; }

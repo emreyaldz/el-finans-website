@@ -515,6 +515,7 @@
   }
   // ── Galeri şeridi: geniş ekranlarda boşluk kalmayacak kadar çoğalt ──
   var marqueeTracks = document.querySelectorAll('.gallery .marquee-track');
+  var galleryMarqueeSpeed = 54; // CSS pixels per second; track length determines loop duration.
   Array.prototype.forEach.call(marqueeTracks, function (track) {
     var originals = Array.prototype.slice.call(track.children);
     if (!originals.length) return;
@@ -529,6 +530,10 @@
       });
       guard++;
     }
+    track.style.setProperty(
+      '--gallery-marquee-duration',
+      (track.scrollWidth / galleryMarqueeSpeed).toFixed(3) + 's'
+    );
   });
   // ── Galeri: ekran görüntüsünü büyük önizlemede aç ──
   var shotModal = document.getElementById('shot-modal');
